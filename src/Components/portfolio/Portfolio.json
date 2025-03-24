@@ -2,7 +2,7 @@
   "projects": [
     {
       "title": "Project Number Zero React",
-      "image": "/img/zero.png",
+      "image": "./images/zero.png",
       "link": "https://darkcode-it.github.io/test-app/",
       "repo": "https://github.com/Darkcode-it/test-app",
       "tags": ["Css", "npx"],
@@ -10,7 +10,7 @@
     },
     {
       "title": "My First Project React",
-      "image": "/img/first.png",
+      "image": "./images/first.png",
       "link": "https://darkcode-it.github.io/my-project/",
       "repo": "https://github.com/Darkcode-it/my-project",
       "tags": [],
@@ -18,7 +18,7 @@
     },
     {
       "title": "The Second Project React",
-      "image": "/img/Estatery.png",
+      "image": "./images/Estatery.png",
       "link": "https://darkcode-it.github.io/2pro-react/",
       "repo": "https://github.com/Darkcode-it/2pro-react",
       "tags": [],
@@ -26,7 +26,7 @@
     },
     {
       "title": "The Project Python",
-      "image": "/img/ddos.jpeg",
+      "image": "./images/ddos.jpeg",
       "link": "https://github.com/Darkcode-it/DDOS",
       "repo": "https://github.com/Darkcode-it/DDOS",
       "tags": [],
@@ -35,7 +35,7 @@
     },
     {
       "title": "The Project Python",
-      "image": "/img/Blocker.png",
+      "image": "./images/Blocker.png",
       "link": "https://github.com/Darkcode-it/Blocker.py",
       "repo": "https://github.com/Darkcode-it/Blocker.py",
       "tags": [],
@@ -44,7 +44,7 @@
     },
     {
       "title": "The Third Project React",
-      "image": "/img/fourth.png",
+      "image": "./images/fourth.png",
       "link": "https://darkcode-it.github.io/Movie/",
       "repo": "https://github.com/Darkcode-it/Movie",
       "tags": ["React", "Tailwind", "Vit"],
@@ -52,7 +52,7 @@
     },
     {
       "title": "The Fourth Project React",
-      "image": "/img/khanoo.png",
+      "image": "./images/khanoo.png",
       "link": "https://darkcode-it.github.io/Khano-app/",
       "repo": "https://github.com/Darkcode-it/Khano-app",
       "tags": ["React", "Tailwind", "Vit"],
@@ -60,7 +60,7 @@
     },
     {
       "title": "The Fourth Project React",
-      "image": "/img/is.png",
+      "image": "./images/is.png",
       "link": "https://darkcode-it.github.io/Khano-app/",
       "repo": "https://github.com/Darkcode-it/Khano-app",
       "tags": ["React", "Tailwind", "Vit"],

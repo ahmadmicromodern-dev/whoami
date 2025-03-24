@@ -2,78 +2,78 @@
   "skills": [
     {
       "name": "HTML",
-      "image": "/img/html5.png",
+      "image": "./images/html5.png",
       "customClass": ""
     },
     {
       "name": "CSS",
-      "image": "/img/css3.png",
+      "image": "./images/css3.png",
       "customClass": ""
     },
     {
       "name": "Tailwind CSS",
-      "image": "/img/tailwind.png",
+      "image": "./images/tailwind.png",
       "customClass": "-ml-2"
     },
     {
       "name": "JavaScript",
-      "image": "/img/js.png",
+      "image": "./images/js.png",
       "imageClass": "w-[53px]",
       "customClass": ""
     },
     {
       "name": "React",
-      "image": "/img/react.png",
+      "image": "./images/react.png",
       "customClass": ""
     },
     {
       "name": "Panel Development",
-      "image": "/img/Web Panel.png",
+      "image": "./images/Web Panel.png",
       "customClass": ""
     },
     {
       "name": "Penetration Testing",
-      "image": "/img/testing.png",
+      "image": "./images/testing.png",
       "customClass": ""
     },
     {
       "name": "SQL Injection",
-      "image": "/img/sql.png",
+      "image": "./images/sql.png",
       "customClass": ""
     },
     {
       "name": "Malware Development",
-      "image": "/img/malware.png",
+      "image": "./images/malware.png",
       "customClass": ""
     },
     {
       "name": "DDoS Attacks (Python)",
-      "image": "/img/ddos.png",
+      "image": "./images/ddos.png",
       "customClass": ""
     },
     {
       "name": "Telegram Channel Disruption",
-      "image": "/img/disruption.png",
+      "image": "./images/disruption.png",
       "customClass": ""
     },
     {
       "name": "Network+",
-      "image": "/img/network_26812.png",
+      "image": "./images/network_26812.png",
       "customClass": "-ml-2"
     },
     {
       "name": "VPS Services",
-      "image": "/img/vps.png",
+      "image": "./images/vps.png",
       "customClass": ""
     },
     {
       "name": "Kali Linux",
-      "image": "/img/linux.png",
+      "image": "./images/linux.png",
       "customClass": ""
     },
     {
       "name": "Tails OS 5.0",
-      "image": "/img/boum_tails_logo_icon_169468.png",
+      "image": "./images/boum_tails_logo_icon_169468.png",
       "customClass": "-ml-2"
     }
   ]
