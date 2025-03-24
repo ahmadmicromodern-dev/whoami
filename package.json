@@ -1,4 +1,5 @@
-{"homepage": "https://darkcode-it.github.io/whoami/",
+{
+  "homepage": "https://darkcode-it.github.io/whoami/",
   "name": "whoami",
   "private": true,
   "version": "0.0.0",
