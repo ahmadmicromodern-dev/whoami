@@ -1,17 +1,17 @@
-import { useState } from 'react'
 
 import './App.css'
+import Menu from "./Components/Menu/Menu.jsx";
+import Banner from "./Components/banner/Banner.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
    <div>
-     <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+       <Menu/>
+       <Banner/>
+
    </div>
+
   )
 }
 
-export default App
+

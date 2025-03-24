@@ -1,0 +1,28 @@
+{
+  "name": "Ahmad Rasouli",
+  "jobTitle": "Front-End Developer",
+  "profileImage": "./images/my2.jpg",
+  "backgroundImage": "./images/fotis.jpg",
+  "socialLinks": [
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/DarkCodeit",
+      "icon": "FaFacebook"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/Darkcode-it",
+      "icon": "FaGithub"
+    },
+    {
+      "name": "Telegram",
+      "url": "https://t.me/Darkcodeit",
+      "icon": "FaTelegram"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://x.com/MusaRahdit",
+      "icon": "RiTwitterXLine"
+    }
+  ]
+}

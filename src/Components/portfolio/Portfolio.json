@@ -1,0 +1,70 @@
+{
+  "projects": [
+    {
+      "title": "Project Number Zero React",
+      "image": "/img/zero.png",
+      "link": "https://darkcode-it.github.io/test-app/",
+      "repo": "https://github.com/Darkcode-it/test-app",
+      "tags": ["Css", "npx"],
+      "description": ""
+    },
+    {
+      "title": "My First Project React",
+      "image": "/img/first.png",
+      "link": "https://darkcode-it.github.io/my-project/",
+      "repo": "https://github.com/Darkcode-it/my-project",
+      "tags": [],
+      "description": ""
+    },
+    {
+      "title": "The Second Project React",
+      "image": "/img/Estatery.png",
+      "link": "https://darkcode-it.github.io/2pro-react/",
+      "repo": "https://github.com/Darkcode-it/2pro-react",
+      "tags": [],
+      "description": ""
+    },
+    {
+      "title": "The Project Python",
+      "image": "/img/ddos.jpeg",
+      "link": "https://github.com/Darkcode-it/DDOS",
+      "repo": "https://github.com/Darkcode-it/DDOS",
+      "tags": [],
+      "description": "A type of DDOS that changes the port and IP with each operation.",
+      "warning": "DDOS"
+    },
+    {
+      "title": "The Project Python",
+      "image": "/img/Blocker.png",
+      "link": "https://github.com/Darkcode-it/Blocker.py",
+      "repo": "https://github.com/Darkcode-it/Blocker.py",
+      "tags": [],
+      "description": "A type of DDOS that changes the port and IP with each operation. With this tool you can eliminate bad Telegram channels.",
+      "warning": "Blocker"
+    },
+    {
+      "title": "The Third Project React",
+      "image": "/img/fourth.png",
+      "link": "https://darkcode-it.github.io/Movie/",
+      "repo": "https://github.com/Darkcode-it/Movie",
+      "tags": ["React", "Tailwind", "Vit"],
+      "description": ""
+    },
+    {
+      "title": "The Fourth Project React",
+      "image": "/img/khanoo.png",
+      "link": "https://darkcode-it.github.io/Khano-app/",
+      "repo": "https://github.com/Darkcode-it/Khano-app",
+      "tags": ["React", "Tailwind", "Vit"],
+      "description": ""
+    },
+    {
+      "title": "The Fourth Project React",
+      "image": "/img/is.png",
+      "link": "https://darkcode-it.github.io/Khano-app/",
+      "repo": "https://github.com/Darkcode-it/Khano-app",
+      "tags": ["React", "Tailwind", "Vit"],
+      "description": ""
+    }
+  ]
+}

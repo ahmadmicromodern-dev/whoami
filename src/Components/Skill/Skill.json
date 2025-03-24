@@ -1,0 +1,80 @@
+{
+  "skills": [
+    {
+      "name": "HTML",
+      "image": "/img/html5.png",
+      "customClass": ""
+    },
+    {
+      "name": "CSS",
+      "image": "/img/css3.png",
+      "customClass": ""
+    },
+    {
+      "name": "Tailwind CSS",
+      "image": "/img/tailwind.png",
+      "customClass": "-ml-2"
+    },
+    {
+      "name": "JavaScript",
+      "image": "/img/js.png",
+      "imageClass": "w-[53px]",
+      "customClass": ""
+    },
+    {
+      "name": "React",
+      "image": "/img/react.png",
+      "customClass": ""
+    },
+    {
+      "name": "Panel Development",
+      "image": "/img/Web Panel.png",
+      "customClass": ""
+    },
+    {
+      "name": "Penetration Testing",
+      "image": "/img/testing.png",
+      "customClass": ""
+    },
+    {
+      "name": "SQL Injection",
+      "image": "/img/sql.png",
+      "customClass": ""
+    },
+    {
+      "name": "Malware Development",
+      "image": "/img/malware.png",
+      "customClass": ""
+    },
+    {
+      "name": "DDoS Attacks (Python)",
+      "image": "/img/ddos.png",
+      "customClass": ""
+    },
+    {
+      "name": "Telegram Channel Disruption",
+      "image": "/img/disruption.png",
+      "customClass": ""
+    },
+    {
+      "name": "Network+",
+      "image": "/img/network_26812.png",
+      "customClass": "-ml-2"
+    },
+    {
+      "name": "VPS Services",
+      "image": "/img/vps.png",
+      "customClass": ""
+    },
+    {
+      "name": "Kali Linux",
+      "image": "/img/linux.png",
+      "customClass": ""
+    },
+    {
+      "name": "Tails OS 5.0",
+      "image": "/img/boum_tails_logo_icon_169468.png",
+      "customClass": "-ml-2"
+    }
+  ]
+}
