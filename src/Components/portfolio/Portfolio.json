@@ -61,8 +61,8 @@
     {
       "title": "The Fourth Project React",
       "image": "./images/is.png",
-      "link": "https://darkcode-it.github.io/Khano-app/",
-      "repo": "https://github.com/Darkcode-it/Khano-app",
+      "link": "https://darkcode-it.github.io/whoami/",
+      "repo": "https://github.com/Darkcode-it/whoami",
       "tags": ["React", "Tailwind", "Vit"],
       "description": ""
     }
