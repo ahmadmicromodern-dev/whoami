@@ -1,7 +1,7 @@
 {
   "projects": [
     {
-      "title": "Project Number Zero React",
+      "title": "React App",
       "image": "./images/zero.png",
       "link": "https://darkcode-it.github.io/test-app/",
       "repo": "https://github.com/Darkcode-it/test-app",
@@ -9,7 +9,7 @@
       "description": ""
     },
     {
-      "title": "My First Project React",
+      "title": "React App",
       "image": "./images/first.png",
       "link": "https://darkcode-it.github.io/my-project/",
       "repo": "https://github.com/Darkcode-it/my-project",
@@ -17,7 +17,7 @@
       "description": ""
     },
     {
-      "title": "The Second Project React",
+      "title": "React App",
       "image": "./images/Estatery.png",
       "link": "https://darkcode-it.github.io/2pro-react/",
       "repo": "https://github.com/Darkcode-it/2pro-react",
@@ -43,7 +43,7 @@
       "warning": "Blocker"
     },
     {
-      "title": "The Third Project React",
+      "title": "React App",
       "image": "./images/fourth.png",
       "link": "https://darkcode-it.github.io/Movie/",
       "repo": "https://github.com/Darkcode-it/Movie",
@@ -51,7 +51,7 @@
       "description": ""
     },
     {
-      "title": "The Fourth Project React",
+      "title": "React App",
       "image": "./images/khanoo.png",
       "link": "https://darkcode-it.github.io/Khano-app/",
       "repo": "https://github.com/Darkcode-it/Khano-app",
@@ -59,7 +59,7 @@
       "description": ""
     },
     {
-      "title": "The Fourth Project React",
+      "title": "React App",
       "image": "./images/is.png",
       "link": "https://darkcode-it.github.io/whoami/",
       "repo": "https://github.com/Darkcode-it/whoami",

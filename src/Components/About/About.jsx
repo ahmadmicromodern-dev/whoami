@@ -1,46 +1,93 @@
 import React from 'react';
-import {FaDownload} from "react-icons/fa6";
+import PropTypes from 'prop-types';
+import { FaDownload } from 'react-icons/fa6';
 
+const aboutContent = {
+    title: "Discover My Journey",
+    description: [
+        "Seasoned front-end architect with 2+ years of experience in crafting high-performance web applications. Specialized in React ecosystem and modern JavaScript practices, with a strong focus on accessibility and performance optimization.",
+        "Passionate about creating immersive digital experiences that blend technical excellence with artistic vision. Continuously exploring emerging technologies to deliver cutting-edge solutions.",
+        "Open-source contributor and technical writer, actively engaged in knowledge sharing through blog posts and workshop facilitation."
+    ],
+    resume: {
+        url: "https://darkcode-it.github.io/whoami/",
+        label: "Download Professional Profile"
+    }
+};
 
 function About() {
-    return (<div>
-        <section className="py-12 px-4 md:px-8" id="about" data-aos="fade-up">
-            <div className="container mx-auto">
-                <div className="flex flex-wrap">
-                    <h3 className="w-full text-3xl font-bold mb-6 text-gray-800">About Me</h3>
-                    <div className="w-full space-y-4 text-gray-600">
-                        <p className="leading-relaxed">
-                            I'm a highly motivated front-end developer with 2 years of experience. I have a strong
-                            background in React, Next.js and Javascript, and
-                            I have experience developing complex web applications using these technologies. I'm
-                            always willing to learn new things and I'm seeking a
-                            challenging opportunity to build projects where my experience, skills and extensive
-                            training can be fully utilized. I aim to create
-                            engaging art that invites viewers to step forward and appreciate a conscious interactive
-                            experience.
-                        </p>
-                        <p className="leading-relaxed">
-                            Also, sharing knowledge has always been one of the most exciting things for me, and I
-                            sometimes produce content on.
+    return (
+        <section
+            className="relative py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-blue-50"
+            id="about"
+            data-aos="fade-up"
+        >
+            <div className="max-w-7xl mx-auto">
+                {/* Header Section */}
+                <div className="mb-16 text-center">
+                    <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+                        {aboutContent.title}
+                        <span className="text-blue-600 ml-2">.</span>
+                    </h2>
+                </div>
 
-                        </p>
+                {/* Content Grid */}
+                <div className="grid lg:grid-cols-3 gap-12 items-start">
+                    {/* Text Content */}
+                    <div className="lg:col-span-2 space-y-6">
+                        {aboutContent.description.map((paragraph, index) => (
+                            <p
+                                key={`para-${index}`}
+                                className="text-lg leading-relaxed text-gray-700"
+                            >
+                                {paragraph}
+                            </p>
+                        ))}
                     </div>
 
-                    <div className="w-full mt-6">
-                        <a href="#"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           className="inline-flex items-center bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors">
-                            <span>My Resume</span>
-
-                            <span className="ml-2">↓</span>
-                        </a>
+                    {/* Download Card */}
+                    <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow">
+                        <div className="text-center">
+                            <div className="mb-6">
+                <span className="inline-block bg-blue-100 text-blue-600 p-4 rounded-2xl">
+                  <FaDownload className="w-8 h-8" />
+                </span>
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-4">
+                                Technical Portfolio
+                            </h3>
+                            <a
+                                href={aboutContent.resume.url}
+                                download
+                                className="inline-flex items-center justify-center w-full bg-gray-900 hover:bg-gray-800 text-white px-6
+                                 py-4 rounded-xl transition-all duration-300 group"
+                                aria-label={aboutContent.resume.label}
+                            >
+                                <span className="font-medium">{aboutContent.resume.label}</span>
+                                <FaDownload className="ml-3 w-5 h-5 transition-transform group-hover:translate-y-1" />
+                            </a>
+                        </div>
                     </div>
+                </div>
+
+                {/* Divider */}
+                <div className="mt-20 max-w-7xl mx-auto">
+                    <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
                 </div>
             </div>
         </section>
-        <div className="border-t border-gray-200"></div>
-    </div>);
+    );
 }
+
+About.propTypes = {
+    aboutContent: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.arrayOf(PropTypes.string).isRequired,
+        resume: PropTypes.shape({
+            url: PropTypes.string.isRequired,
+            label: PropTypes.string.isRequired
+        }).isRequired
+    })
+};
 
 export default About;

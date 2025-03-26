@@ -1,45 +1,149 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { AcademicCapIcon, TrophyIcon } from '@heroicons/react/24/outline';
 
-function Education() {
-    return (<div>
-        <section className="py-12 px-4 md:px-8" id="education" data-aos="fade-up">
-            <div className="max-w-6xl mx-auto">
-                <div className="flex flex-wrap">
-                    <h3 className="w-full text-3xl font-bold mb-6 text-gray-800 hover:text-blue-600 transition-colors duration-300">
-                        Education
-                    </h3>
+// داده‌های آموزشی با قابلیت توسعه
+const educationData = [
+    {
+        id: 1,
+        title: "Diploma in Veterinary and Animal Nutrition",
+        institution: "Iranian National Education System",
+        description: "Studied animal health and nutrition with a focus on practical applications",
+        year: "2014",
+        icon: AcademicCapIcon,
+        highlights: [
+            "Focus on biochemistry and microbiology",
+            "Practical laboratory training",
+            "Animal physiology specialization"
+        ]
+    },
+    {
+        id: 2,
+        title: "National Entrance Exam Achievement",
+        institution: "Iranian University Entrance System",
+        description: "Ranked 133rd in the 2014 National Entrance Exam",
+        year: "2014",
+        icon: TrophyIcon,
+        highlights: [
+            "Top 0.5% of participants",
+            "Competitive STEM-focused exam",
+            "Quantitative analysis specialization"
+        ]
+    }
+];
 
-                    <div className="w-full">
-                        <div
-                            className="border rounded-lg bg-gray-50 p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                            <h4 className="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors duration-300">
-                                Diploma in Veterinary and Animal Nutrition
-                            </h4>
-                            <p className="text-sm font-medium text-gray-600 mt-2">
-                                Studied animal health and nutrition with a focus on practical applications
-                            </p>
-                            <p className="text-sm text-gray-500 mt-2">
-                                Graduated in 2014
-                            </p>
-                        </div>
+function EducationTimeline() {
+    return (
+        <section
+            className="relative py-20 px-4 md:px-8 bg-gradient-to-b from-gray-50 to-white"
+            id="education"
+            data-aos="fade-up"
+        >
+            <div className="max-w-7xl mx-auto">
+                {/* Header Section */}
+                <div className="mb-16 text-center">
+                    <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+                        Academic Journey
+                        <span className="text-blue-600 ml-2">.</span>
+                    </h2>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Formal education and academic achievements shaping my professional foundation
+                    </p>
+                </div>
 
-                        <div
-                            className="mt-6 border rounded-lg bg-gray-50 p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                            <h4 className="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors duration-300">
-                                National Entrance Exam Achievement
-                            </h4>
-                            <p className="text-sm font-medium text-gray-600 mt-2">
-                                Ranked 133rd in the 2014 National Entrance Exam
-                            </p>
-                            <p className="text-sm text-gray-500 mt-2">
-                                Demonstrates high academic potential and capability
-                            </p>
-                        </div>
+                {/* Timeline Container */}
+                <div className="relative">
+                    {/* Timeline Line */}
+                    <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-200 transform -translate-x-1/2 rounded-full" />
+
+                    {/* Education Items */}
+                    <div className="space-y-12 md:space-y-0">
+                        {educationData.map((edu, index) => (
+                            <EducationCard
+                                key={edu.id}
+                                edu={edu}
+                                index={index}
+                                totalItems={educationData.length}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
         </section>
-    </div>);
+    );
 }
 
-export default Education;
+// کامپوننت جداگانه برای آیتم‌های آموزشی
+const EducationCard = ({ edu, index, totalItems }) => {
+    const Icon = edu.icon;
+
+    return (
+        <article
+            className={`relative md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} 
+      items-center gap-8 w-full ${index !== totalItems - 1 ? 'mb-20' : ''}`}
+        >
+            {/* Timeline Dot */}
+            <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="w-6 h-6 bg-blue-600 rounded-full ring-8 ring-blue-100" />
+            </div>
+
+            {/* Content Container */}
+            <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border border-gray-100">
+                    {/* Icon Header */}
+                    <div className="mb-6 flex items-center gap-4">
+                        <div className="p-3 bg-blue-100 rounded-lg">
+                            <Icon className="w-8 h-8 text-blue-600" />
+                        </div>
+                        <div>
+                            <h3 className="text-2xl font-bold text-gray-900">{edu.title}</h3>
+                            <p className="text-sm font-medium text-gray-600 mt-1">{edu.institution}</p>
+                        </div>
+                    </div>
+
+                    {/* Content Body */}
+                    <div className="space-y-4">
+                        <div className="flex items-center gap-2 text-sm font-medium text-gray-600">
+                            <span className="bg-gray-100 px-3 py-1 rounded-full">🎓 {edu.year}</span>
+                            {index === 0 && (
+                                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">
+                  Completed
+                </span>
+                            )}
+                        </div>
+
+                        <p className="text-gray-600 leading-relaxed">{edu.description}</p>
+
+                        {/* Highlights List */}
+                        <ul className="space-y-2 mt-4">
+                            {edu.highlights.map((highlight, i) => (
+                                <li
+                                    key={i}
+                                    className="flex items-start gap-2 text-gray-600"
+                                >
+                                    <svg
+                                        className="w-4 h-4 text-blue-600 flex-shrink-0 mt-1"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>{highlight}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+    );
+};
+
+EducationCard.propTypes = {
+    edu: PropTypes.object.isRequired,
+    index: PropTypes.number.isRequired,
+    totalItems: PropTypes.number.isRequired
+};
+
+export default EducationTimeline;

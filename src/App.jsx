@@ -2,9 +2,8 @@ import './App.css'
 import Menu from "./Components/Menu/Menu.jsx";
 import Banner from "./Components/banner/Banner.jsx";
 import About from "./Components/About/About.jsx";
-import Work from "./Components/Work/Work.jsx";
-import Experience from "./Components/Work/Work.jsx";
 import Education from "./Components/Education/Education.jsx";
+import Experience from "./Components/Experience/Experience.jsx";
 import Certifications from "./Components/certifica/Certifications.jsx";
 import Skills from "./Components/Skill/Skill.jsx";
 import Portfolio from "./Components/portfolio/Portfolio.jsx";
@@ -24,8 +23,6 @@ export default function App() {
             <Portfolio/>
             <Services/>
             <Footer/>
-
-
 
 
         </div>
