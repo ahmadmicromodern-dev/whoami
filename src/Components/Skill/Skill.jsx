@@ -11,9 +11,9 @@ function Skills() {
 
     return (
         <div>
-            <section className="py-12 px-4 md:px-8" id="skills" data-aos="fade-up">
+            <section className="py-12 shadow-md  px-4 md:px-8" id="skills" data-aos="fade-up">
                 <div className="max-w-6xl mx-auto text-center">
-                    <h3 className="text-3xl font-bold mb-8 text-gray-800">Skills</h3>
+                    <h3 className="text-3xl font-bold mb-8 ">Skills</h3>
 
                     {/* بهبود گرید و رسپانسیو بودن */}
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 justify-center">
@@ -21,7 +21,7 @@ function Skills() {
                             <div
                                 key={skill.id} // استفاده از ID یونیک به جای index
                                 className="flex flex-col items-center justify-center border rounded-lg
-                                bg-white p-4 gap-2 shadow-sm hover:shadow-lg transition-all
+                               p-4 gap-2 shadow-sm hover:shadow-lg transition-all
                                 duration-300 hover:-translate-y-1 min-w-[120px] max-w-[160px]
                                 h-[120px] hover:border-blue-200"
                             >
@@ -32,8 +32,8 @@ function Skills() {
                                     loading="lazy"
                                     onError={addImageFallback}
                                 />
-                                <h6 className={`text-sm font-semibold text-gray-700 
-                                    text-center ${skill.customClass || ''}`}>
+                                <h6 className={`text-sm font-semibold
+                                    text-center  ${skill.customClass || ''}`}>
                                     {skill.name}
                                 </h6>
                             </div>
@@ -47,10 +47,7 @@ function Skills() {
                 </div>
             </section>
 
-            {/* خط جداکننده ساده‌تر */}
-            <div className="max-w-6xl mx-auto px-4 md:px-8">
-                <hr className="border-t border-gray-200 my-8" />
-            </div>
+
         </div>
     );
 }

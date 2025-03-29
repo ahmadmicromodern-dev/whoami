@@ -44,18 +44,18 @@ const servicesData = [
 function Services() {
     return (
         <section
-            className="py-20 px-4 md:px-8 bg-gradient-to-b from-gray-50 to-white"
+            className="py-20 px-4 md:px-8 "
             id="services"
             data-aos="fade-up"
         >
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+                    <h2 className="text-4xl font-extrabold mb-4">
                         Professional Services
                         <span className="text-blue-600 ml-2">.</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-xl max-w-3xl mx-auto">
                         Tailored solutions to bring your digital vision to life
                     </p>
                 </div>
@@ -65,7 +65,7 @@ function Services() {
                     {servicesData.map((service) => (
                         <div
                             key={service.id}
-                            className="group relative bg-white rounded-xl shadow-lg hover:shadow-2xl
+                            className="group relative rounded-xl shadow-lg hover:shadow-2xl
               border border-gray-100 overflow-hidden transition-all duration-300
               hover:-translate-y-2"
                         >
@@ -75,13 +75,13 @@ function Services() {
                                     <div className="p-3 bg-blue-100 text-blue-600 rounded-lg">
                                         {service.icon}
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900">
+                                    <h3 className="text-xl font-bold">
                                         {service.title}
                                     </h3>
                                 </div>
 
                                 {/* Description */}
-                                <p className="text-gray-600 mb-6">
+                                <p className=" mb-6">
                                     {service.description}
                                 </p>
 
@@ -90,7 +90,7 @@ function Services() {
                                     {service.highlights.map((highlight, index) => (
                                         <li key={index} className="flex items-start gap-2">
                                             <span className="text-blue-500 mt-1">•</span>
-                                            <span className="text-gray-700">{highlight}</span>
+                                            <span className="">{highlight}</span>
                                         </li>
                                     ))}
                                 </ul>

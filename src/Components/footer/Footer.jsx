@@ -52,7 +52,7 @@ const footerData = {
 function Footer() {
     return (
         <footer className="bg-gray-900 border-t border-gray-800">
-            <div className="max-w-7xl mx-auto px-6 py-12">
+            <div className="max-w-7xl mx-auto p-9">
                 <div className="flex flex-col items-center">
 
                     {/* Social Links */}

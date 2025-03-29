@@ -1,26 +1,3 @@
-// import experienceData from './experienceData.json';
-//
-// const Experience = () => {
-//     const { meta, items } = experienceData.experience;
-//
-//     return (
-//         <section>
-//             <h2>{meta.sectionTitle}</h2>
-//             <p>{meta.sectionDescription}</p>
-//
-//             {items.map((item) => (
-//                 <article key={item.id}>
-//                     <h3>{item.role}</h3>
-//                     <div className={`badge-${meta.colorScheme.development}`}>
-//                         {item.type}
-//                     </div>
-//                     {/* ... */}
-//                 </article>
-//             ))}
-//         </section>
-//     );
-// };
-
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -56,18 +33,18 @@ const experienceData = {
 function Experience() {
     return (
         <section
-            className="py-20 px-4 md:px-8 bg-gradient-to-b from-gray-50 to-white"
+            className="py-20 px-4 md:px-8"
             id="experience"
             data-aos="fade-up"
         >
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="mb-16 text-center">
-                    <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+                    <h2 className="text-4xl font-extrabold mb-4">
                         {experienceData.title}
                         <span className="text-blue-600 ml-2">.</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-xl  max-w-3xl mx-auto">
                         Bridging development expertise with security-first approach
                     </p>
                 </div>
@@ -77,18 +54,18 @@ function Experience() {
                     {experienceData.items.map((item) => (
                         <article
                             key={item.id}
-                            className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl
+                            className="relative  rounded-2xl shadow-xl hover:shadow-2xl
               transition-all duration-300 border border-gray-100 overflow-hidden"
                         >
                             {/* Experience Header */}
-                            <div className="p-8 border-b border-gray-200 bg-gray-50">
+                            <div className="p-8 border-b border-gray-200 ">
                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                     <div className="flex items-center gap-4">
                                         <div className="p-3 bg-blue-100 rounded-lg">
                                             <BriefcaseIcon className="w-8 h-8 text-blue-600" />
                                         </div>
                                         <div>
-                                            <h3 className="text-2xl font-bold text-gray-900">{item.role}</h3>
+                                            <h3 className="text-2xl font-bold">{item.role}</h3>
                                             <span className="inline-block mt-2 bg-blue-100 text-blue-800
                       px-3 py-1 rounded-full text-sm font-medium">
                         {item.type}

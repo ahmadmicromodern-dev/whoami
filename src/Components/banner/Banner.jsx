@@ -6,7 +6,7 @@ import {
     FaGithub, FaTelegram, FaFacebook, FaAngleDown
 }
 
-from 'react-icons/fa';
+    from 'react-icons/fa';
 import {RiTwitterXLine} from "react-icons/ri";
 import data from './Banner.json';
 
@@ -19,10 +19,11 @@ function Banner() {
 
     return (<section
         id="home"
-        className="relative min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
         <div className="absolute inset-0 z-0">
             <img
+                id="imgBanner"
                 src={backgroundImage}
                 alt="Background"
                 className="w-full h-full object-cover opacity-700"
@@ -44,13 +45,15 @@ function Banner() {
                     <img
                         src={profileImage}
                         alt={name}
-                        className="w-full h-full rounded-full object-cover transform group-hover:scale-105 transition-transform"
+                        className="w-full h-full rounded-full object-cover transform
+                        group-hover:scale-105 transition-transform"
                     />
                 </div>
 
                 {/* متن اصلی */}
                 <div className="space-y-6" data-aos="fade-up" data-aos-duration="1000">
-                    <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-400
+                    to-cyan-400 bg-clip-text text-transparent">
                         {name}
                     </h1>
                     <p className="text-2xl md:text-3xl font-medium text-gray-300">

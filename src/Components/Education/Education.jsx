@@ -35,18 +35,18 @@ const educationData = [
 function EducationTimeline() {
     return (
         <section
-            className="relative py-20 px-4 md:px-8 bg-gradient-to-b from-gray-50 to-white"
+            className="relative py-20 px-4 md:px-8"
             id="education"
             data-aos="fade-up"
         >
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="mb-16 text-center">
-                    <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+                    <h2 className="text-4xl font-extrabold  mb-4">
                         Academic Journey
                         <span className="text-blue-600 ml-2">.</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-xl max-w-3xl mx-auto">
                         Formal education and academic achievements shaping my professional foundation
                     </p>
                 </div>
@@ -54,7 +54,8 @@ function EducationTimeline() {
                 {/* Timeline Container */}
                 <div className="relative">
                     {/* Timeline Line */}
-                    <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-200 transform -translate-x-1/2 rounded-full" />
+                    <div className="hidden md:block absolute left-1/2 top-0 bottom-0
+                     w-1 bg-gray-200 transform -translate-x-1/2 rounded-full" />
 
                     {/* Education Items */}
                     <div className="space-y-12 md:space-y-0">
@@ -80,8 +81,7 @@ const EducationCard = ({ edu, index, totalItems }) => {
     return (
         <article
             className={`relative md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} 
-      items-center gap-8 w-full ${index !== totalItems - 1 ? 'mb-20' : ''}`}
-        >
+      items-center gap-8 w-full ${index !== totalItems - 1 ? 'mb-20' : ''}`}>
             {/* Timeline Dot */}
             <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <div className="w-6 h-6 bg-blue-600 rounded-full ring-8 ring-blue-100" />
@@ -89,15 +89,16 @@ const EducationCard = ({ edu, index, totalItems }) => {
 
             {/* Content Container */}
             <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border border-gray-100">
+                <div className="relative  rounded-2xl shadow-lg hover:shadow-xl transition-shadow
+                 duration-300 p-8 border border-gray-100">
                     {/* Icon Header */}
                     <div className="mb-6 flex items-center gap-4">
                         <div className="p-3 bg-blue-100 rounded-lg">
                             <Icon className="w-8 h-8 text-blue-600" />
                         </div>
                         <div>
-                            <h3 className="text-2xl font-bold text-gray-900">{edu.title}</h3>
-                            <p className="text-sm font-medium text-gray-600 mt-1">{edu.institution}</p>
+                            <h3 className="text-2xl font-bold ">{edu.title}</h3>
+                            <p className="text-sm font-medium  mt-1">{edu.institution}</p>
                         </div>
                     </div>
 
@@ -112,14 +113,14 @@ const EducationCard = ({ edu, index, totalItems }) => {
                             )}
                         </div>
 
-                        <p className="text-gray-600 leading-relaxed">{edu.description}</p>
+                        <p className=" leading-relaxed">{edu.description}</p>
 
                         {/* Highlights List */}
                         <ul className="space-y-2 mt-4">
                             {edu.highlights.map((highlight, i) => (
                                 <li
                                     key={i}
-                                    className="flex items-start gap-2 text-gray-600"
+                                    className="flex items-start gap-2 "
                                 >
                                     <svg
                                         className="w-4 h-4 text-blue-600 flex-shrink-0 mt-1"

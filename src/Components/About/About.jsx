@@ -18,14 +18,14 @@ const aboutContent = {
 function About() {
     return (
         <section
-            className="relative py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-blue-50"
+            className="relative py-20 px-4 md:px-8 "
             id="about"
             data-aos="fade-up"
         >
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="mb-16 text-center">
-                    <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+                    <h2 className="text-4xl font-extrabold mb-4 ">
                         {aboutContent.title}
                         <span className="text-blue-600 ml-2">.</span>
                     </h2>
@@ -38,7 +38,7 @@ function About() {
                         {aboutContent.description.map((paragraph, index) => (
                             <p
                                 key={`para-${index}`}
-                                className="text-lg leading-relaxed text-gray-700"
+                                className="text-lg leading-relaxed "
                             >
                                 {paragraph}
                             </p>
@@ -46,20 +46,20 @@ function About() {
                     </div>
 
                     {/* Download Card */}
-                    <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow">
+                    <div className="rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow">
                         <div className="text-center">
                             <div className="mb-6">
                 <span className="inline-block bg-blue-100 text-blue-600 p-4 rounded-2xl">
                   <FaDownload className="w-8 h-8" />
                 </span>
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">
+                            <h3 className="text-xl font-bold  mb-4 ">
                                 Technical Portfolio
                             </h3>
                             <a
                                 href={aboutContent.resume.url}
                                 download
-                                className="inline-flex items-center justify-center w-full bg-gray-900 hover:bg-gray-800 text-white px-6
+                                className="inline-flex items-center justify-center w-full bg-gray-800 hover:bg-gray-700 text-white px-6
                                  py-4 rounded-xl transition-all duration-300 group"
                                 aria-label={aboutContent.resume.label}
                             >
