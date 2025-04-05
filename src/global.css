@@ -5,16 +5,12 @@ body {
 }
 
 
-
-
 :root {
-
-
     --text-color: black;
 }
 
 :root :has(#dark-mode:checked) {
-    --bg-color: rgb(18,24,38);
-    --text-color: rgb(154,159,170);
+    --bg-color: rgb(18, 24, 38);
+    --text-color: rgb(154, 159, 170);
 
 }

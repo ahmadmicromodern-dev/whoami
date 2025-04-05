@@ -65,6 +65,14 @@
       "repo": "https://github.com/Darkcode-it/whoami",
       "tags": ["React", "Tailwind", "Vit"],
       "description": ""
+    },
+    {
+      "title": "React App",
+      "image": "./images/todo.png",
+      "link": "https://preview--persia-todo-task.lovable.app/",
+      "repo": "https://github.com/Darkcode-it/persia-todo-task",
+      "tags": ["React", "Tailwind", "Vit"],
+      "description": ""
     }
   ]
 }
