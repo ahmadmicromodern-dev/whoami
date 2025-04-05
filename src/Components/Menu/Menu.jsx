@@ -3,11 +3,15 @@ import {TiThMenu, TiTimes} from 'react-icons/ti';
 import PropTypes from 'prop-types';
 import IconDarkmode from "./IconDarkmode.jsx";
 import './IconDarkmode.css'
+import { useTranslation } from 'react-i18next';
+import { FaLanguage } from 'react-icons/fa';
 
 const Menu = ({menuItems = []}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const menuRef = useRef(null);
+    const { t, i18n } = useTranslation();
+    const [isAnimating, setIsAnimating] = useState(false);
 
     // Handle scroll effect
     useEffect(() => {
@@ -33,9 +37,36 @@ const Menu = ({menuItems = []}) => {
         setIsOpen(false);
     };
 
-    const defaultItems = ['Home', 'About', 'Experience', 'Education', 'Certifications', 'Skills', 'Portfolio', 'Services'];
+    const toggleLanguage = () => {
+        setIsAnimating(true);
+        setTimeout(() => {
+            const newLang = i18n.language === 'en' ? 'fa' : 'en';
+            i18n.changeLanguage(newLang);
+            // Set HTML lang attribute to help with font switching
+            document.documentElement.lang = newLang;
+            setIsAnimating(false);
+        }, 300);
+    };
+
+    // Set initial language on component mount
+    useEffect(() => {
+        document.documentElement.lang = i18n.language;
+    }, [i18n.language]);
+
+    const defaultItems = [
+        { key: 'home', label: t('menu.home') },
+        { key: 'about', label: t('menu.about') },
+        { key: 'experience', label: t('menu.experience') },
+        { key: 'education', label: t('menu.education') },
+        { key: 'certifications', label: t('menu.certifications') },
+        { key: 'skills', label: t('menu.skills') },
+        { key: 'portfolio', label: t('menu.portfolio') },
+        { key: 'services', label: t('menu.services') }
+    ];
 
     const itemsToRender = menuItems.length > 0 ? menuItems : defaultItems;
+    
+    document.documentElement.dir = i18n.language === 'fa' ? 'rtl' : 'ltr';
 
     return (
         <header
@@ -51,22 +82,42 @@ const Menu = ({menuItems = []}) => {
                     onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
                 >
                         <span className="font-bold bg-gradient-to-r from-blue-400
-                    to-cyan-400 bg-clip-text text-transparent">Ahmad Rasouli</span>
+                    to-cyan-400 bg-clip-text text-transparent">{t('name')}</span>
                 </a>
 
                 {/* Desktop Menu */}
-                <IconDarkmode/>
+                <div className="flex items-center space-x-2.5">
+                    <IconDarkmode/>
+                    <button 
+                        onClick={toggleLanguage}
+                        className="relative flex items-center justify-center w-10 h-10 rounded-full 
+                                  bg-gradient-to-r from-blue-400 to-cyan-400 p-0.5 
+                                  shadow-md hover:shadow-lg transition-all duration-300
+                                  hover:scale-110"
+                        aria-label="Toggle language"
+                    >
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-75 
+                                      blur-sm"></div>
+                        <div className={`flex items-center justify-center w-full h-full rounded-full bg-white dark:bg-slate-800 
+                                       transition-transform duration-300 ${isAnimating ? 'scale-0' : 'scale-100'}`}>
+                            <span className="font-bold text-sm bg-gradient-to-r from-blue-400 to-cyan-400 
+                                           bg-clip-text text-transparent">
+                                {i18n.language === 'en' ? 'فا' : 'EN'}
+                            </span>
+                        </div>
+                    </button>
+                </div>
                 <ul className="hidden lg:flex space-x-8">
-                    {itemsToRender.map((item) => (<li key={item}>
+                    {itemsToRender.map((item) => (<li key={item.key}>
                         <a
-                            href={`#${item.toLowerCase()}`}
+                            href={`#${item.key}`}
                             className="relative px-1 py-2 bg-gradient-to-r from-blue-400
                     to-cyan-400 bg-clip-text text-transparent  hover:text-blue-500
                   after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0
                   after:h-0.5 after:bg-blue-500 after:transition-all after:duration-300
                   hover:after:w-full"
                         >
-                            {item}
+                            {item.label}
                         </a>
                     </li>))}
                 </ul>
@@ -87,17 +138,37 @@ const Menu = ({menuItems = []}) => {
                          ${isOpen ? 'translate-x-1 opacity-500 ' : '-translate-x-full opacity-0 '}`}
                     style={{top: '4.5rem'}}
                 >
-                    <ul className="flex flex-col space-y-1   ">
-                        {itemsToRender.map((item) => (<li key={item}>
+                    <ul className="flex flex-col space-y-1">
+                        {itemsToRender.map((item) => (<li key={item.key}>
                             <a
-                                href={`#${item.toLowerCase()}`}
+                                href={`#${item.key}`}
                                 onClick={handleItemClick}
                                 className="block text-center  text-2xl font-medium
                     transition-colors py-3 border-b border-gray-200"
                             >
-                                {item}
+                                {item.label}
                             </a>
                         </li>))}
+                        <li>
+                            <button 
+                                onClick={toggleLanguage}
+                                className="flex items-center justify-center w-full py-3 space-x-2 border-b border-gray-200"
+                            >
+                                <div className="relative flex items-center justify-center w-8 h-8 rounded-full 
+                                              bg-gradient-to-r from-blue-400 to-cyan-400 p-0.5 shadow-md">
+                                    <div className="flex items-center justify-center w-full h-full rounded-full 
+                                                  bg-white dark:bg-slate-800">
+                                        <span className="font-bold text-sm bg-gradient-to-r from-blue-400 to-cyan-400 
+                                                       bg-clip-text text-transparent">
+                                            {i18n.language === 'en' ? 'فا' : 'EN'}
+                                        </span>
+                                    </div>
+                                </div>
+                                <span className="text-gray-700 dark:text-gray-300">
+                                    {i18n.language === 'en' ? 'Persian' : 'English'}
+                                </span>
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </nav>

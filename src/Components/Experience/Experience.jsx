@@ -1,7 +1,7 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BriefcaseIcon, CodeBracketIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
+import { useTranslation } from 'react-i18next';
 
 const experienceData = {
     title: "Professional Journey",
@@ -31,6 +31,8 @@ const experienceData = {
 };
 
 function Experience() {
+    const { t } = useTranslation();
+
     return (
         <section
             className="py-20 px-4 md:px-8"
@@ -41,24 +43,24 @@ function Experience() {
                 {/* Header Section */}
                 <div className="mb-16 text-center">
                     <h2 className="text-4xl font-extrabold mb-4">
-                        {experienceData.title}
+                        {t('experience.title')}
                         <span className="text-blue-600 ml-2">.</span>
                     </h2>
-                    <p className="text-xl  max-w-3xl mx-auto">
-                        Bridging development expertise with security-first approach
+                    <p className="text-xl max-w-3xl mx-auto">
+                        {t('experience.subtitle')}
                     </p>
                 </div>
 
                 {/* Experience Timeline */}
                 <div className="space-y-12">
-                    {experienceData.items.map((item) => (
+                    {t('experience.items', { returnObjects: true }).map((item) => (
                         <article
                             key={item.id}
-                            className="relative  rounded-2xl shadow-xl hover:shadow-2xl
-              transition-all duration-300 border border-gray-100 overflow-hidden"
+                            className="relative rounded-2xl shadow-xl hover:shadow-2xl
+                            transition-all duration-300 border border-gray-100 overflow-hidden"
                         >
                             {/* Experience Header */}
-                            <div className="p-8 border-b border-gray-200 ">
+                            <div className="p-8 border-b border-gray-200">
                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                     <div className="flex items-center gap-4">
                                         <div className="p-3 bg-blue-100 rounded-lg">
@@ -67,15 +69,15 @@ function Experience() {
                                         <div>
                                             <h3 className="text-2xl font-bold">{item.role}</h3>
                                             <span className="inline-block mt-2 bg-blue-100 text-blue-800
-                      px-3 py-1 rounded-full text-sm font-medium">
-                        {item.type}
-                      </span>
+                                            px-3 py-1 rounded-full text-sm font-medium">
+                                                {item.type}
+                                            </span>
                                         </div>
                                     </div>
                                     <span className="text-sm font-medium text-gray-500 bg-gray-100
-                  px-3 py-1 rounded-full">
-                    {item.period}
-                  </span>
+                                    px-3 py-1 rounded-full">
+                                        {item.period}
+                                    </span>
                                 </div>
                             </div>
 
@@ -89,7 +91,7 @@ function Experience() {
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     {/* Development Skills */}
                                     <SkillCategory
-                                        title="Development Expertise"
+                                        title={t('experience.skillCategories.development')}
                                         icon={<CodeBracketIcon className="w-6 h-6" />}
                                         skills={item.skills.development}
                                         color="blue"
@@ -97,7 +99,7 @@ function Experience() {
 
                                     {/* Security Skills */}
                                     <SkillCategory
-                                        title="Security Specialization"
+                                        title={t('experience.skillCategories.security')}
                                         icon={<ShieldCheckIcon className="w-6 h-6" />}
                                         skills={item.skills.cybersecurity}
                                         color="green"
@@ -105,7 +107,7 @@ function Experience() {
 
                                     {/* Tools Stack */}
                                     <SkillCategory
-                                        title="Tools & Platforms"
+                                        title={t('experience.skillCategories.tools')}
                                         skills={item.skills.tools}
                                         color="purple"
                                     />
@@ -119,7 +121,7 @@ function Experience() {
     );
 }
 
-// کامپوننت جداگانه برای دسته‌بندی مهارت‌ها
+// Skill category component
 const SkillCategory = ({ title, icon, skills, color = "blue" }) => {
     const colorVariants = {
         blue: { bg: 'bg-blue-100', text: 'text-blue-800' },
@@ -140,10 +142,10 @@ const SkillCategory = ({ title, icon, skills, color = "blue" }) => {
                     <span
                         key={index}
                         className={`${colorVariants[color].bg} ${colorVariants[color].text} 
-            px-3 py-1 rounded-full text-sm font-medium`}
+                        px-3 py-1 rounded-full text-sm font-medium`}
                     >
-            {skill}
-          </span>
+                        {skill}
+                    </span>
                 ))}
             </div>
         </div>

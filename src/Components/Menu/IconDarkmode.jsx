@@ -1,14 +1,14 @@
 import React from 'react';
 
 const IconDarkmode = () => {
-    return (<div className="theme-switch">
+    return (<div className="theme-switch ">
         <label className="theme-switch">
             <input
                 type="checkbox"
-                className="theme-switch__checkbox"
+                className="theme-switch__checkbox "
                 id="dark-mode"
             />
-            <div className="theme-switch__container">
+            <div className="theme-switch__container ">
                 <div className="theme-switch__clouds"></div>
                 <div className="theme-switch__stars-container ">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="currentColor">
@@ -18,7 +18,7 @@ const IconDarkmode = () => {
                               fill="currentColor"></path>
                     </svg>
                 </div>
-                <div className="theme-switch__circle-container">
+                <div className="theme-switch__circle-container ">
                     <div className="theme-switch__sun-moon-container">
                         <div className="theme-switch__moon">
                             <div className="theme-switch__spot"></div>

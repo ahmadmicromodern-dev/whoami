@@ -13,12 +13,10 @@ import './global.css'
 import {useTranslation} from "react-i18next";
 
 export default function App() {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
 
     return (
         <div>
-
-
             <Menu/>
             <Banner/>
             <About/>
@@ -29,10 +27,7 @@ export default function App() {
             <Portfolio/>
             <Services/>
             <Footer/>
-
-
         </div>
-
     )
 }
 
