@@ -1,30 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import projectsData from './Portfolio.json';
 import { CiWarning } from "react-icons/ci";
 import { useTranslation } from 'react-i18next';
 
 const Portfolio = () => {
-    const { t } = useTranslation();
+    const { i18n } = useTranslation();
     
     const addImageFallback = (event) => {
         event.currentTarget.src = 'https://via.placeholder.com/400x200?text=Image+Not+Found';
         event.currentTarget.onerror = null; // Prevent infinite loop if placeholder fails
     };
 
+    // Usar datos directamente del JSON en lugar de las traducciones
+    const portfolioData = projectsData;
+
     return (
         <section className="py-12 px-4 md:px-8" id="portfolio" data-aos="fade-up">
             <div className="max-w-6xl mx-auto">
                 {/* Header Section */}
                 <div className="mb-12 text-center">
-                    <h3 className="text-4xl font-bold mb-3">{t('portfolio.title')}</h3>
+                    <h3 className="text-4xl font-bold mb-3">Portfolio</h3>
                     <p className="max-w-2xl mx-auto text-gray-600">
-                        {t('portfolio.description')}
+                        The projects may not be perfect from your point of view, but I make them more perfect every day
                     </p>
                 </div>
 
                 {/* Projects Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {t('portfolio.projects', { returnObjects: true }).map((project) => (
+                    {portfolioData.projects.map((project) => (
                         <ProjectCard 
                             key={project.id || project.title} 
                             project={project} 
@@ -40,7 +44,7 @@ const Portfolio = () => {
                         className="inline-block bg-gray-900 hover:bg-gray-800 text-white
                         px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                     >
-                        {t('portfolio.viewAll')}
+                        View all projects
                     </a>
                 </div>
             </div>
@@ -50,8 +54,6 @@ const Portfolio = () => {
 
 // Extracted ProjectCard as a separate component for better reusability
 const ProjectCard = ({ project, onError }) => {
-    const { t } = useTranslation();
-    
     return (
         <div
             className="group border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-all
@@ -86,7 +88,7 @@ const ProjectCard = ({ project, onError }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {t('portfolio.viewSource')}
+                        View Source
                         <CiWarning className="w-5 h-5 mr-1" />
                     </a>
                 </div>

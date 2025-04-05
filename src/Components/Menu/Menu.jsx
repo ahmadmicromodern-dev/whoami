@@ -12,6 +12,8 @@ const Menu = ({menuItems = []}) => {
     const menuRef = useRef(null);
     const { t, i18n } = useTranslation();
     const [isAnimating, setIsAnimating] = useState(false);
+    const [isChangingLanguage, setIsChangingLanguage] = useState(false);
+    const [animationRipple, setAnimationRipple] = useState(false);
 
     // Handle scroll effect
     useEffect(() => {
@@ -38,14 +40,32 @@ const Menu = ({menuItems = []}) => {
     };
 
     const toggleLanguage = () => {
+        // Start ripple effect animation
+        setAnimationRipple(true);
+        setTimeout(() => setAnimationRipple(false), 700);
+        
+        // Start icon animation
         setIsAnimating(true);
+        
+        // Start content fade animation
+        setIsChangingLanguage(true);
+        
+        // Actually change the language after a delay
         setTimeout(() => {
             const newLang = i18n.language === 'en' ? 'fa' : 'en';
             i18n.changeLanguage(newLang);
-            // Set HTML lang attribute to help with font switching
             document.documentElement.lang = newLang;
-            setIsAnimating(false);
-        }, 300);
+            
+            // End icon animation
+            setTimeout(() => {
+                setIsAnimating(false);
+            }, 300);
+            
+            // End content animation after the language has changed
+            setTimeout(() => {
+                setIsChangingLanguage(false);
+            }, 300);
+        }, 400);
     };
 
     // Set initial language on component mount
@@ -71,17 +91,18 @@ const Menu = ({menuItems = []}) => {
     return (
         <header
         ref={menuRef}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 
         ${isScrolled ? ' bg-white shadow-md py-1' : 'bg-slate-900/900  py-1'}`}>
         <div className="container mx-auto px-4 sm:px-6" id='menu'>
             <nav className="flex items-center justify-between">
                 {/* Brand Logo */}
                 <a
                     href="#home"
-                    className="text-xl font-bold hover:text-blue-600 transition-colors"
+                    className={`text-xl font-bold hover:text-blue-600 transition-colors 
+                    transition-all duration-500 ${isChangingLanguage ? 'opacity-0 transform translate-y-2' : 'opacity-100 transform translate-y-0'}`}
                     onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
                 >
-                        <span className="font-bold bg-gradient-to-r from-blue-400
+                    <span className="font-bold bg-gradient-to-r from-blue-400
                     to-cyan-400 bg-clip-text text-transparent">{t('name')}</span>
                 </a>
 
@@ -93,13 +114,18 @@ const Menu = ({menuItems = []}) => {
                         className="relative flex items-center justify-center w-10 h-10 rounded-full 
                                   bg-gradient-to-r from-blue-400 to-cyan-400 p-0.5 
                                   shadow-md hover:shadow-lg transition-all duration-300
-                                  hover:scale-110"
+                                  hover:scale-110 overflow-hidden"
                         aria-label="Toggle language"
+                        disabled={isChangingLanguage || isAnimating}
                     >
+                        {/* Ripple effect */}
+                        <span className={`absolute inset-0 bg-white/30 rounded-full scale-0 transition-transform duration-700 
+                                         ${animationRipple ? 'scale-[10] opacity-0' : 'scale-0 opacity-100'}`}></span>
+                                         
                         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-75 
                                       blur-sm"></div>
                         <div className={`flex items-center justify-center w-full h-full rounded-full bg-white dark:bg-slate-800 
-                                       transition-transform duration-300 ${isAnimating ? 'scale-0' : 'scale-100'}`}>
+                                       transition-transform duration-500 ${isAnimating ? 'scale-0 rotate-180' : 'scale-100 rotate-0'}`}>
                             <span className="font-bold text-sm bg-gradient-to-r from-blue-400 to-cyan-400 
                                            bg-clip-text text-transparent">
                                 {i18n.language === 'en' ? 'فا' : 'EN'}
@@ -107,7 +133,8 @@ const Menu = ({menuItems = []}) => {
                         </div>
                     </button>
                 </div>
-                <ul className="hidden lg:flex space-x-8">
+                <ul className={`hidden lg:flex space-x-8 transition-all duration-500 
+                               ${isChangingLanguage ? 'opacity-0 transform translate-y-2' : 'opacity-100 transform translate-y-0'}`}>
                     {itemsToRender.map((item) => (<li key={item.key}>
                         <a
                             href={`#${item.key}`}
@@ -124,7 +151,8 @@ const Menu = ({menuItems = []}) => {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="lg:hidden p-2  focus:outline-none focus:ring-2 focus: rounded-md"
+                    className={`lg:hidden p-2 focus:outline-none focus:ring-2 rounded-md
+                              transition-all duration-500 ${isChangingLanguage ? 'opacity-0' : 'opacity-100'}`}
                     onClick={() => setIsOpen(!isOpen)}
                     aria-expanded={isOpen}
                     aria-label="Toggle navigation">
@@ -133,12 +161,13 @@ const Menu = ({menuItems = []}) => {
 
                 {/* Mobile Menu */}
                 <div
-                    className={`fixed  lg:hidden inset-0 backdrop-blur-lg z-40 transition-all 
-                        duration-300 ease-in-out transform
+                    className={`fixed lg:hidden inset-0 backdrop-blur-lg z-40 transition-all 
+                        duration-500 ease-in-out transform
                          ${isOpen ? 'translate-x-1 opacity-500 ' : '-translate-x-full opacity-0 '}`}
                     style={{top: '4.5rem'}}
                 >
-                    <ul className="flex flex-col space-y-1">
+                    <ul className={`flex flex-col space-y-1 transition-all duration-500 
+                                   ${isChangingLanguage ? 'opacity-0' : 'opacity-100'}`}>
                         {itemsToRender.map((item) => (<li key={item.key}>
                             <a
                                 href={`#${item.key}`}
@@ -153,11 +182,16 @@ const Menu = ({menuItems = []}) => {
                             <button 
                                 onClick={toggleLanguage}
                                 className="flex items-center justify-center w-full py-3 space-x-2 border-b border-gray-200"
+                                disabled={isChangingLanguage || isAnimating}
                             >
                                 <div className="relative flex items-center justify-center w-8 h-8 rounded-full 
-                                              bg-gradient-to-r from-blue-400 to-cyan-400 p-0.5 shadow-md">
-                                    <div className="flex items-center justify-center w-full h-full rounded-full 
-                                                  bg-white dark:bg-slate-800">
+                                              bg-gradient-to-r from-blue-400 to-cyan-400 p-0.5 shadow-md overflow-hidden">
+                                    {/* Mobile ripple effect */}
+                                    <span className={`absolute inset-0 bg-white/30 rounded-full scale-0 transition-transform duration-700 
+                                                    ${animationRipple ? 'scale-[10] opacity-0' : 'scale-0 opacity-100'}`}></span>
+                                    <div className={`flex items-center justify-center w-full h-full rounded-full 
+                                                  bg-white dark:bg-slate-800 transition-transform duration-500 
+                                                  ${isAnimating ? 'scale-0 rotate-180' : 'scale-100 rotate-0'}`}>
                                         <span className="font-bold text-sm bg-gradient-to-r from-blue-400 to-cyan-400 
                                                        bg-clip-text text-transparent">
                                             {i18n.language === 'en' ? 'فا' : 'EN'}
@@ -177,7 +211,10 @@ const Menu = ({menuItems = []}) => {
 };
 
 Menu.propTypes = {
-    menuItems: PropTypes.arrayOf(PropTypes.string),
+    menuItems: PropTypes.arrayOf(PropTypes.shape({
+        key: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired
+    })),
 };
 
 export default Menu;

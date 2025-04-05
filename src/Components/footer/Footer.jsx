@@ -43,7 +43,7 @@ const footerData = {
             email: "darkcodeit@protonmail.com"
         },
         credits: {
-            text: "Initial Design by Siavash Sattari",
+            text: "Initial Design by ",
             email: "siavash.sattari.dev@gmail.com"
         }
     }
