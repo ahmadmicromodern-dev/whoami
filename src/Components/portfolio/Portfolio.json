@@ -2,14 +2,6 @@
   "projects": [
     {
       "title": "React App",
-      "image": "./images/zero.png",
-      "link": "https://darkcode-it.github.io/test-app/",
-      "repo": "https://github.com/Darkcode-it/test-app",
-      "tags": ["Css", "npx"],
-      "description": ""
-    },
-    {
-      "title": "React App",
       "image": "./images/first.png",
       "link": "https://darkcode-it.github.io/my-project/",
       "repo": "https://github.com/Darkcode-it/my-project",
