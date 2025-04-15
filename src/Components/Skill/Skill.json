@@ -16,9 +16,24 @@
       "customClass": "-ml-2"
     },
     {
+      "name": "bootstrap",
+      "image": "./images/bootstrap.png",
+      "customClass": ""
+    },
+    {
       "name": "JavaScript",
       "image": "./images/js.png",
       "imageClass": "w-[53px]",
+      "customClass": ""
+    },
+    {
+      "name": "Node.js",
+      "image": "./images/nodejs.png",
+      "customClass": ""
+    }, 
+    {
+      "name": "npm",
+      "image": "./images/npm.png",
       "customClass": ""
     },
     {
@@ -26,11 +41,28 @@
       "image": "./images/react.png",
       "customClass": ""
     },
-    {
+      {
       "name": "Panel Development",
       "image": "./images/Web Panel.png",
       "customClass": ""
     },
+    {
+      "name": "Python",
+      "image": "./images/python.png",
+      "customClass": ""
+    },
+
+    {
+      "name": "Git",
+      "image": "./images/git.png",
+      "customClass": ""
+    },
+    {
+      "name": "Figma",
+      "image": "./images/figma.png",
+      "customClass": ""
+    },
+ 
     {
       "name": "Penetration Testing",
       "image": "./images/testing.png",
@@ -47,12 +79,12 @@
       "customClass": ""
     },
     {
-      "name": "DDoS Attacks (Python)",
+      "name": "DDoS Attacks",
       "image": "./images/ddos.png",
       "customClass": ""
     },
     {
-      "name": "Telegram Channel Disruption",
+      "name": "Channel Disruption",
       "image": "./images/disruption.png",
       "customClass": ""
     },

@@ -15,6 +15,12 @@ body {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
 }
+@font-face {
+    font-family: 'Lalezar';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Lalezar'), url('./Components/fonts/Lalezar-Regular.ttf') format('ttf');
+  }
 
 /* Font for Persian language - with lighter weight */
 html[lang="fa"] body {

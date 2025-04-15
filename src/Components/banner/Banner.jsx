@@ -7,11 +7,11 @@ import {
 }
 
     from 'react-icons/fa';
-import {RiTwitterXLine} from "react-icons/ri";
+
 import data from './Banner.json';
 
 const iconComponents = {
-    FaFacebook: FaFacebook, FaGithub: FaGithub, FaTelegram: FaTelegram, RiTwitterXLine: RiTwitterXLine
+    FaFacebook: FaFacebook, FaGithub: FaGithub, FaTelegram: FaTelegram, 
 };
 
 function Banner() {

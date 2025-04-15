@@ -7,7 +7,7 @@ import {
     FaLinkedin,
     FaCodepen
 } from 'react-icons/fa';
-import { RiTwitterXLine } from "react-icons/ri";
+
 
 const footerData = {
     socialLinks: [
@@ -22,12 +22,6 @@ const footerData = {
             url: "https://t.me/Darkcodeit",
             icon: <FaTelegram className="w-5 h-5" />,
             ariaLabel: "Contact via Telegram"
-        },
-        {
-            name: "Twitter",
-            url: "https://x.com/MusaRahdit",
-            icon: <RiTwitterXLine className="w-5 h-5" />,
-            ariaLabel: "Follow on Twitter"
         },
         {
             name: "Facebook",
