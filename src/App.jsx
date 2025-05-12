@@ -9,6 +9,7 @@ import Skills from "./Components/Skill/Skill.jsx";
 import Portfolio from "./Components/portfolio/Portfolio.jsx";
 import Services from "./Components/Services/Services.jsx";
 import Footer from "./Components/footer/Footer.jsx";
+import PWAInstallPrompt from './components/PWAInstallPrompt';
 import './global.css'
 import {useTranslation} from "react-i18next";
 
@@ -27,6 +28,7 @@ export default function App() {
             <Portfolio/>
             <Services/>
             <Footer/>
+            <PWAInstallPrompt />
         </div>
     )
 }

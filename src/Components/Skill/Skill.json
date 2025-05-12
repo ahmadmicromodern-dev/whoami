@@ -1,109 +1,128 @@
 {
   "skills": [
     {
+      "id": "html",
       "name": "HTML",
       "image": "./images/html5.png",
       "customClass": ""
     },
     {
+      "id": "css",
       "name": "CSS",
       "image": "./images/css3.png",
       "customClass": ""
     },
     {
+      "id": "tailwind",
       "name": "Tailwind CSS",
       "image": "./images/tailwind.png",
       "customClass": "-ml-2"
     },
     {
+      "id": "bootstrap",
       "name": "bootstrap",
       "image": "./images/bootstrap.png",
       "customClass": ""
     },
     {
+      "id": "javascript",
       "name": "JavaScript",
       "image": "./images/js.png",
       "imageClass": "w-[53px]",
       "customClass": ""
     },
     {
+      "id": "nodejs",
       "name": "Node.js",
       "image": "./images/nodejs.png",
       "customClass": ""
     }, 
     {
+      "id": "npm",
       "name": "npm",
       "image": "./images/npm.png",
       "customClass": ""
     },
     {
+      "id": "react",
       "name": "React",
       "image": "./images/react.png",
       "customClass": ""
     },
-      {
+    {
+      "id": "panel-dev",
       "name": "Panel Development",
       "image": "./images/Web Panel.png",
       "customClass": ""
     },
     {
+      "id": "python",
       "name": "Python",
       "image": "./images/python.png",
       "customClass": ""
     },
-
     {
+      "id": "git",
       "name": "Git",
       "image": "./images/git.png",
       "customClass": ""
     },
     {
+      "id": "figma",
       "name": "Figma",
       "image": "./images/figma.png",
       "customClass": ""
     },
- 
     {
+      "id": "pentest",
       "name": "Penetration Testing",
       "image": "./images/testing.png",
       "customClass": ""
     },
     {
+      "id": "sql-injection",
       "name": "SQL Injection",
       "image": "./images/sql.png",
       "customClass": ""
     },
     {
+      "id": "malware-dev",
       "name": "Malware Development",
       "image": "./images/malware.png",
       "customClass": ""
     },
     {
+      "id": "ddos",
       "name": "DDoS Attacks",
       "image": "./images/ddos.png",
       "customClass": ""
     },
     {
+      "id": "channel-disruption",
       "name": "Channel Disruption",
       "image": "./images/disruption.png",
       "customClass": ""
     },
     {
+      "id": "network-plus",
       "name": "Network+",
       "image": "./images/network_26812.png",
       "customClass": "-ml-2"
     },
     {
+      "id": "vps",
       "name": "VPS Services",
       "image": "./images/vps.png",
       "customClass": ""
     },
     {
+      "id": "kali",
       "name": "Kali Linux",
       "image": "./images/linux.png",
       "customClass": ""
     },
     {
+      "id": "tails",
       "name": "Tails OS 5.0",
       "image": "./images/boum_tails_logo_icon_169468.png",
       "customClass": "-ml-2"
