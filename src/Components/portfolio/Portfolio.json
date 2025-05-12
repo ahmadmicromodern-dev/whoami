@@ -1,7 +1,8 @@
 {
   "projects": [
     {
-      "title": "React App",
+      "id": "my-project",
+      "title": "My Project",
       "image": "./images/first.png",
       "link": "https://darkcode-it.github.io/my-project/",
       "repo": "https://github.com/Darkcode-it/my-project",
@@ -9,25 +10,26 @@
       "description": ""
     },
     {
-      "title": "React App",
+      "id": "2pro-react",
+      "title": "2Pro React",
       "image": "./images/2pro-react.png",
       "link": "https://darkcode-it.github.io/2pro-react/",
       "repo": "https://github.com/Darkcode-it/2pro-react",
       "tags": [],
       "description": ""
     },
-
     {
-      "title": "React App",
+      "id": "khano-app",
+      "title": "Khano App",
       "image": "./images/khanoo.png",
       "link": "https://darkcode-it.github.io/Khano-app/",
       "repo": "https://github.com/Darkcode-it/Khano-app",
       "tags": ["React", "Tailwind", "Vit"],
       "description": ""
     },
-    
     {
-      "title": "React App",
+      "id": "movie-app",
+      "title": "Movie App",
       "image": "./images/fourth.png",
       "link": "https://darkcode-it.github.io/Movie/",
       "repo": "https://github.com/Darkcode-it/Movie",
@@ -35,7 +37,8 @@
       "description": ""
     },
     {
-      "title": "React App",
+      "id": "whoami",
+      "title": "WhoAmI Portfolio",
       "image": "./images/is.png",
       "link": "https://darkcode-it.github.io/whoami/",
       "repo": "https://github.com/Darkcode-it/whoami",
@@ -43,7 +46,8 @@
       "description": ""
     },
     {
-      "title": "React App",
+      "id": "todo-app",
+      "title": "Todo App",
       "image": "./images/todo.png",
       "link": "https://preview--persia-todo-task.lovable.app/",
       "repo": "https://github.com/Darkcode-it/persia-todo-task",
@@ -51,7 +55,8 @@
       "description": ""
     },
     {
-      "title": "The Project Python",
+      "id": "ddos-tool",
+      "title": "DDOS Tool",
       "image": "./images/ddos.jpeg",
       "link": "https://github.com/Darkcode-it/DDOS",
       "repo": "https://github.com/Darkcode-it/DDOS",
@@ -60,7 +65,8 @@
       "warning": "DDOS"
     },
     {
-      "title": "The Project Python",
+      "id": "telegram-blocker",
+      "title": "Telegram Blocker",
       "image": "./images/Blocker.png",
       "link": "https://github.com/Darkcode-it/Blocker.py",
       "repo": "https://github.com/Darkcode-it/Blocker.py",

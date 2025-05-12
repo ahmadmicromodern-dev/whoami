@@ -30,7 +30,7 @@ const Portfolio = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {portfolioData.projects.map((project) => (
                         <ProjectCard 
-                            key={project.id || project.title} 
+                            key={project.id} 
                             project={project} 
                             onError={addImageFallback}
                         />
@@ -99,7 +99,7 @@ const ProjectCard = ({ project, onError }) => {
 
 ProjectCard.propTypes = {
     project: PropTypes.shape({
-        id: PropTypes.string,
+        id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
         link: PropTypes.string.isRequired,

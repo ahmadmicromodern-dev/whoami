@@ -34,6 +34,12 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        globIgnores: [
+          '**/images/2pro-react.png',
+          '**/images/fourth.png',
+          '**/images/is.png'
+        ],
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5MB
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -48,9 +54,22 @@ export default defineConfig({
                 statuses: [0, 200]
               }
             }
+          },
+          {
+            urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'images-cache',
+              expiration: {
+                maxEntries: 60,
+                maxAgeSeconds: 30 * 24 * 60 * 60 // 30 days
+              }
+            }
           }
         ]
       }
     })
   ]
 })
+
+
