@@ -6,6 +6,28 @@ import { useTranslation } from 'react-i18next';
 function About() {
     const { t } = useTranslation();
 
+    const handleDownload = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch(t('about.resume.url'));
+            if (!response.ok) {
+                throw new Error('File not found');
+            }
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'AhmadRasouli.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        } catch (error) {
+            console.error('Download failed:', error);
+            alert('متأسفانه دانلود فایل با مشکل مواجه شد. لطفاً دوباره تلاش کنید.');
+        }
+    };
+
     return (
         <section
             className="relative py-20 px-4 md:px-8 "
@@ -40,22 +62,21 @@ function About() {
                         <div className="text-center">
                             <div className="mb-6">
                                 <span className="inline-block bg-blue-100 text-blue-600 p-4 rounded-2xl">
-                                  <FaDownload className="w-8 h-8" />
+                                    <FaDownload className="w-8 h-8" />
                                 </span>
                             </div>
                             <h3 className="text-xl font-bold mb-4">
                                 {t('about.portfolio')}
                             </h3>
-                            <a
-                                href={t('about.resume.url')}
-                                download
+                            <button
+                                onClick={handleDownload}
                                 className="inline-flex items-center justify-center w-full bg-gray-800 hover:bg-gray-700 text-white px-6
                                  py-4 rounded-xl transition-all duration-300 group"
                                 aria-label={t('about.resume.label')}
                             >
                                 <span className="font-medium">{t('about.resume.label')}</span>
                                 <FaDownload className="ml-3 w-5 h-5 transition-transform group-hover:translate-y-1" />
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
