@@ -19,7 +19,7 @@ body {
     font-family: 'Lalezar';
     font-style: normal;
     font-weight: normal;
-    src: local('Lalezar'), url('./Components/fonts/Lalezar-Regular.ttf') format('ttf');
+    src: local('Lalezar'), url('./assets/fonts/Lalezar-Regular.ttf') format('truetype');
   }
 
 /* Font for Persian language - with lighter weight */

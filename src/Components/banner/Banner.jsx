@@ -2,16 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-
-    FaGithub, FaTelegram, FaFacebook, FaAngleDown
-}
-
-    from 'react-icons/fa';
+    FaGithub, 
+    FaTelegram, 
+    FaAngleDown,
+    FaGlobe
+} from 'react-icons/fa';
 
 import data from './Banner.json';
 
 const iconComponents = {
-    FaFacebook: FaFacebook, FaGithub: FaGithub, FaTelegram: FaTelegram, 
+    FaGithub: FaGithub, 
+    FaTelegram: FaTelegram,
+    FaGlobe: FaGlobe
 };
 
 function Banner() {

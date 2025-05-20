@@ -5,7 +5,8 @@ import {
     FaTelegram,
     FaFacebook,
     FaLinkedin,
-    FaCodepen
+    FaCodepen,
+    FaGlobe
 } from 'react-icons/fa';
 
 
@@ -24,10 +25,10 @@ const footerData = {
             ariaLabel: "Contact via Telegram"
         },
         {
-            name: "Facebook",
-            url: "https://www.facebook.com/DarkCodeit",
-            icon: <FaFacebook className="w-5 h-5" />,
-            ariaLabel: "Connect on Facebook"
+            name: "Website",
+            url: "https://ahmad-rasouli-sgd5qfa.gamma.site/",
+            icon: <FaGlobe className="w-5 h-5" />,
+            ariaLabel: "Visit personal website"
         }
     ],
     copyright: {
