@@ -1,34 +1,39 @@
+/**
+ * با سلام خدمت مهندس و همکار گرامی لطفا وقتی از پروژه های اپن سورس من استفاده میکنید یادر از من در پروژه کنید با قرار دادن ادرس گیت هاب من در هرقسمت که تمایل داشتید ممنون وموفق باشید
+ * 
+ * Hello dear engineer and colleague, when you use my open source projects or mention me in your project, please include my GitHub address wherever you prefer. Thank you and good luck.
+ * 
+ * GitHub: https://github.com/Darkcode-it
+ */
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
-  base:"/whoami/",
   plugins: [
     react(),
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'icons/icon-192.png', 'icons/icon-512.png'],
+      includeAssets: ['favicon.ico', 'logo192.png', 'logo512.png'],
       manifest: {
-        name: 'WhoAmI',
-        short_name: 'WhoAmI',
-        description: 'A personal portfolio and information app',
+        name: 'Ahmad Rasouli - Front-End Developer & Cybersecurity Specialist',
+        short_name: 'Ahmad Rasouli',
+        description: 'Personal portfolio website',
         theme_color: '#000000',
         icons: [
           {
-            src: 'icons/icon-192.png',
+            src: 'logo192.png',
             sizes: '192x192',
-            type: 'image/png',
-            purpose: 'any maskable'
+            type: 'image/png'
           },
           {
-            src: 'icons/icon-512.png',
+            src: 'logo512.png',
             sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable'
+            type: 'image/png'
           }
         ]
       },
@@ -69,7 +74,13 @@ export default defineConfig({
         ]
       }
     })
-  ]
+  ],
+  base: '/whoami/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: true
+  }
 })
 
 
