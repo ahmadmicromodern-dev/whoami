@@ -136,7 +136,7 @@ const Menu = ({ menuItems = [] }) => {
                         {itemsToRender.map((item) => (<li key={item.key}>
                             <a
                                 href={`#${item.key}`}
-                                className="relative px-1 py-2 text-gray-800 font-bold 
+                                className="relative px-1 py-2 text-gray-500 font-bold 
                                 transition-colors duration-300 ease-in-out
                                 hover:text-[#1BBDF9] hover:opacity-80
                                 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0
@@ -161,49 +161,57 @@ const Menu = ({ menuItems = [] }) => {
                     {/* Mobile Menu */}
                     <div
                         className={`fixed lg:hidden inset-0 z-40 transition-all 
-                        duration-500 ease-in-out transform
-                         ${isOpen ? 'translate-x-1 opacity-500' : '-translate-x-full opacity-0'}`}
+                        duration-500 ease-in-out transform bg-white/95 backdrop-blur-sm
+                         ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}
                         style={{ top: '4.5rem' }}
                     >
-                        <ul className={`flex flex-col space-y-1 transition-all duration-500 
-                                   ${isChangingLanguage ? 'opacity-0' : 'opacity-100'}`}>
-                            {itemsToRender.map((item) => (<li key={item.key}>
-                                <a
-                                    href={`#${item.key}`}
-                                    onClick={handleItemClick}
-                                    className="block text-center text-2xl font-bold
-                                    transition-colors duration-300 ease-in-out
-                                    py-3 border-b border-theme 
-                                    text-gray-800 hover:text-[#1BBDF9] hover:opacity-80"
-                                >
-                                    {item.label}
-                                </a>
-                            </li>))}
-                            <li>
-                                <button
-                                    onClick={toggleLanguage}
-                                    className="flex items-center justify-center w-full py-3 space-x-2 border-b border-theme"
-                                    disabled={isChangingLanguage || isAnimating}
-                                >
-                                    <div className="relative flex items-center justify-center w-8 h-8 rounded-full 
-                                              bg-[#1BBDF9] p-0.5 shadow-md overflow-hidden">
-                                        {/* Mobile ripple effect */}
-                                        <span className={`absolute inset-0 bg-white/30 rounded-full scale-0 transition-transform duration-700 
-                                                    ${animationRipple ? 'scale-[10] opacity-0' : 'scale-0 opacity-100'}`}></span>
-                                        <div className={`flex items-center justify-center w-full h-full rounded-full 
-                                                  bg-theme transition-transform duration-500 
-                                                  ${isAnimating ? 'scale-0 rotate-180' : 'scale-100 rotate-0'}`}>
-                                            <span className="font-bold text-sm text-[#1BBDF9]">
-                                                {i18n.language === 'en' ? 'فا' : 'EN'}
-                                            </span>
+                        <div className={`h-full w-full transition-all duration-500 ease-in-out
+                                    ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                            <ul className={`flex flex-col space-y-2 transition-all duration-500 p-4
+                                       ${isChangingLanguage ? 'opacity-0' : 'opacity-100'}`}>
+                                {itemsToRender.map((item) => (<li key={item.key}>
+                                    <a
+                                        href={`#${item.key}`}
+                                        onClick={handleItemClick}
+                                        className="block text-center text-xl font-bold
+                                        transition-all duration-300 ease-in-out
+                                        py-4 px-6 rounded-lg relative overflow-hidden
+                                        text-gray-800 hover:text-[#1BBDF9] hover:bg-gray-50
+                                        active:scale-95 transform group"
+                                    >
+                                        <span className="relative z-10">{item.label}</span>
+                                        <span className="absolute inset-0 bg-[#1BBDF9] opacity-0 group-hover:opacity-5 
+                                                       transition-opacity duration-300 ease-in-out"></span>
+                                    </a>
+                                </li>))}
+                                <li className="mt-4">
+                                    <button
+                                        onClick={toggleLanguage}
+                                        className="flex items-center justify-center w-full py-4 px-6 space-x-3 
+                                                 rounded-lg bg-gray-50 hover:bg-gray-100 transition-all duration-300
+                                                 active:scale-95 transform"
+                                        disabled={isChangingLanguage || isAnimating}
+                                    >
+                                        <div className="relative flex items-center justify-center w-10 h-10 rounded-full 
+                                                  bg-[#1BBDF9] p-0.5 shadow-md overflow-hidden">
+                                            {/* Mobile ripple effect */}
+                                            <span className={`absolute inset-0 bg-white/30 rounded-full scale-0 transition-transform duration-700 
+                                                        ${animationRipple ? 'scale-[10] opacity-0' : 'scale-0 opacity-100'}`}></span>
+                                            <div className={`flex items-center justify-center w-full h-full rounded-full 
+                                                      bg-theme transition-transform duration-500 
+                                                      ${isAnimating ? 'scale-0 rotate-180' : 'scale-100 rotate-0'}`}>
+                                                <span className="font-bold text-sm text-[#1BBDF9]">
+                                                    {i18n.language === 'en' ? 'فا' : 'EN'}
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <span className="text-[#1BBDF9]">
-                                        {i18n.language === 'en' ? 'Persian' : 'English'}
-                                    </span>
-                                </button>
-                            </li>
-                        </ul>
+                                        <span className="text-[#1BBDF9] font-bold">
+                                            {i18n.language === 'en' ? 'Persian' : 'English'}
+                                        </span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </div>
