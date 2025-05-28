@@ -6,42 +6,45 @@ import { useTranslation } from 'react-i18next';
 
 const Portfolio = () => {
     const { i18n } = useTranslation();
-    
+
     const addImageFallback = (event) => {
         event.currentTarget.src = 'https://via.placeholder.com/400x200?text=Image+Not+Found';
-        event.currentTarget.onerror = null; // Prevent infinite loop if placeholder fails
+        event.currentTarget.onerror = null; // جلوگیری از حلقه بی‌نهایت در صورت خرابی تصویر جایگزین
     };
 
-    // Usar datos directamente del JSON en lugar de las traducciones
     const portfolioData = projectsData;
 
     return (
-        <section className="py-12 px-4 md:px-8" id="portfolio" data-aos="fade-up">
+        <section className="relative py-12 px-4 md:px-8" id="portfolio" data-aos="fade-up">
             <div className="max-w-6xl mx-auto">
-                {/* Header Section */}
+                {/* بخش هدر */}
                 <div className="mb-12 text-center">
-                    <h3 className="text-4xl font-bold mb-3">Portfolio</h3>
-                    <p className="max-w-2xl mx-auto text-gray-600">
+                    <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-3">
+                        Portfolio
+                    </h3>
+                    <p className="max-w-2xl mx-auto text-gray-600 mt-4">
                         The projects may not be perfect from your point of view, but I make them more perfect every day
                     </p>
+                    <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mt-4"></div>
                 </div>
 
-                {/* Projects Grid */}
+                {/* گرید پروژه‌ها */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {portfolioData.projects.map((project) => (
-                        <ProjectCard 
-                            key={project.id} 
-                            project={project} 
+                    {portfolioData.projects.map((project, index) => (
+                        <ProjectCard
+                            key={project.id}
+                            project={project}
                             onError={addImageFallback}
+                            index={index} // برای انیمیشن‌های تأخیری
                         />
                     ))}
                 </div>
 
-                {/* CTA Button */}
+                {/* دکمه فراخوان به عمل */}
                 <div className="mt-12 text-center">
                     <a
                         href="/index2"
-                        className="inline-block bg-gray-900 hover:bg-gray-800 text-white
+                        className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white
                         px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                     >
                         View all projects
@@ -52,45 +55,60 @@ const Portfolio = () => {
     );
 };
 
-// Extracted ProjectCard as a separate component for better reusability
-const ProjectCard = ({ project, onError }) => {
+// کامپوننت کارت پروژه
+const ProjectCard = ({ project, onError, index }) => {
     return (
         <div
-            className="group border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-all
-            duration-300 hover:border-blue-300 overflow-hidden"
+            className="group relative h-[400px]"
+            style={{
+                animationDelay: `${index * 100}ms` // تأخیر انیمیشن برای هر کارت
+            }}
         >
-            <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-52 object-cover rounded-t-xl group-hover:scale-105 transition-transform
-                    duration-500"
-                    loading="lazy"
-                    onError={onError}
-                />
-            </a>
+            <div className="relative bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-5 
+                          shadow-md hover:shadow-xl transition-all duration-500 
+                          hover:-translate-y-2 hover:bg-white/30 overflow-hidden h-full">
+                {/* افکت گرادیان هنگام هاور */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 
+                              opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
 
-            <div className="p-5">
-                <h5 className="text-xl font-bold mb-2">{project.title}</h5>
-
-                {project.warning && (
-                    <div className="text-red-600 font-medium mb-3 flex items-center">
-                        <CiWarning className="w-5 h-5 mr-1" />
-                        {project.warning}
-                    </div>
-                )}
-
-                <div className="mt-4">
-                    <a
-                        href={project.repo}
-                        className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium
-                        transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        View Source
-                        <CiWarning className="w-5 h-5 mr-1" />
+                <div className="relative z-10 flex flex-col h-full">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="block flex-grow-0">
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-52 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            onError={onError}
+                        />
                     </a>
+
+                    <div className="p-4 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <h5 className="text-xl font-bold text-gray-800 group-hover:text-gray-900 transition-colors duration-300 mb-2">
+                                {project.title}
+                            </h5>
+
+                            {project.warning && (
+                                <div className="text-red-600 font-medium mb-3 flex items-center justify-center">
+                                    <CiWarning className="w-5 h-5 mr-1" />
+                                    {project.warning}
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="mt-4">
+                            <a
+                                href={project.repo}
+                                className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium
+                                transition-colors"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View Source
+                                <CiWarning className="w-5 h-5 mr-1" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,6 +125,7 @@ ProjectCard.propTypes = {
         warning: PropTypes.string,
     }).isRequired,
     onError: PropTypes.func.isRequired,
+    index: PropTypes.number.isRequired,
 };
 
 export default Portfolio;

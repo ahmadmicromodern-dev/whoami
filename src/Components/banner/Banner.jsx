@@ -17,30 +17,18 @@ const iconComponents = {
 };
 
 function Banner() {
-    const {name, jobTitle, profileImage, backgroundImage, socialLinks} = data;
+    const {name, jobTitle, profileImage, socialLinks} = data;
 
     return (<section
         id="home"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center"
     >
-        <div className="absolute inset-0 z-0">
-            <img
-                id="imgBanner"
-                src={backgroundImage}
-                alt="Background"
-                className="w-full h-full object-cover opacity-700"
-                loading="eager"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent"/>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4">
             <div className="flex flex-col items-center justify-center text-center space-y-8">
-
                 {/* تصویر پروفایل */}
                 <div
                     className="relative group w-64 h-64 rounded-full border-4 border-blue-500/20 p-2
-            shadow-2xl transition-all duration-500 hover:border-blue-500/50"
+                    shadow-2xl transition-all duration-500 hover:border-blue-500/50"
                     data-aos="zoom-in"
                     data-aos-delay="200"
                 >
@@ -58,7 +46,7 @@ function Banner() {
                     to-cyan-400 bg-clip-text text-transparent">
                         {name}
                     </h1>
-                    <p className="text-2xl md:text-3xl font-medium text-gray-300">
+                    <p className="text-2xl md:text-3xl font-medium text-gray-700">
                         {jobTitle}
                     </p>
 
@@ -71,7 +59,7 @@ function Banner() {
                                 href={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                                className="text-gray-600 hover:text-blue-400 transition-colors duration-300"
                                 aria-label={`Visit ${link.name}`}
                             >
                                 <Icon className="w-8 h-8"/>
@@ -98,7 +86,6 @@ Banner.propTypes = {
         name: PropTypes.string.isRequired,
         jobTitle: PropTypes.string.isRequired,
         profileImage: PropTypes.string.isRequired,
-        backgroundImage: PropTypes.string.isRequired,
         socialLinks: PropTypes.arrayOf(PropTypes.shape({
             name: PropTypes.string.isRequired,
             url: PropTypes.string.isRequired,

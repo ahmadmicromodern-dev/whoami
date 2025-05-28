@@ -15,44 +15,52 @@ function Services() {
 
     return (
         <section
-            className="py-20 px-4 md:px-8"
+            className="relative py-20 px-4 md:px-8"
             id="services"
             data-aos="fade-up"
         >
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-extrabold mb-4">
+                    <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-4">
                         {t('services.title')}
                         <span className="text-blue-600 ml-2">.</span>
                     </h2>
-                    <p className="text-xl max-w-3xl mx-auto">
+                    <p className="text-xl max-w-3xl mx-auto text-gray-600 mt-4">
                         {t('services.subtitle')}
                     </p>
+                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mt-4"></div>
                 </div>
 
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {t('services.items', { returnObjects: true }).map((service) => (
+                    {t('services.items', { returnObjects: true }).map((service, index) => (
                         <div
                             key={service.id}
-                            className="group relative rounded-xl shadow-lg hover:shadow-2xl
-                            border border-gray-100 overflow-hidden transition-all duration-300
-                            hover:-translate-y-2"
+                            className="group relative bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6 
+                                        shadow-xl hover:shadow-2xl transition-all duration-500 
+                                        hover:-translate-y-3 hover:bg-white/30 overflow-hidden"
+                            style={{
+                                animationDelay: `${index * 100}ms` // تأخیر انیمیشن برای هر کارت
+                            }}
                         >
-                            {/* Service Header */}
-                            <div className="p-6">
+                            {/* افکت گرادیان هنگام هاور */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 
+                                          opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+                            
+                            <div className="relative z-10">
+                                {/* Service Header */}
                                 <div className="flex items-center gap-4 mb-4">
-                                    <div className="p-3 bg-blue-100 text-blue-600 rounded-lg">
+                                    <div className="p-3 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-lg text-blue-600">
                                         {iconMap[service.iconName]}
                                     </div>
-                                    <h3 className="text-xl font-bold">
+                                    <h3 className="text-xl font-bold text-gray-800 group-hover:text-gray-900 transition-colors duration-300">
                                         {service.title}
                                     </h3>
                                 </div>
 
                                 {/* Description */}
-                                <p className="mb-6">
+                                <p className="text-gray-900 mb-6">
                                     {service.description}
                                 </p>
 
@@ -61,14 +69,17 @@ function Services() {
                                     {service.highlights.map((highlight, index) => (
                                         <li key={index} className="flex items-start gap-2">
                                             <span className="text-blue-500 mt-1">•</span>
-                                            <span className="">{highlight}</span>
+                                            <span className="text-gray-800">{highlight}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
 
-                            {/* Hover Effect */}
-                            <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl pointer-events-none transition-all duration-500" />
+                            {/* تزئینات گرادیان */}
+                            <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-400/20 to-purple-400/20 
+                                          rounded-bl-2xl opacity-50"></div>
+                            <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-pink-400/20 to-orange-400/20 
+                                          rounded-tr-2xl opacity-50"></div>
                         </div>
                     ))}
                 </div>

@@ -4,128 +4,128 @@
       "id": "html",
       "name": "HTML",
       "image": "./images/html5.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 95
     },
     {
       "id": "css",
       "name": "CSS",
       "image": "./images/css3.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 90
     },
     {
       "id": "tailwind",
       "name": "Tailwind CSS",
       "image": "./images/tailwind.png",
-      "customClass": "-ml-2"
+      "customClass": "-ml-2",
+      "proficiency": 88
     },
     {
       "id": "bootstrap",
-      "name": "bootstrap",
+      "name": "Bootstrap",
       "image": "./images/bootstrap.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 85
     },
     {
       "id": "javascript",
       "name": "JavaScript",
       "image": "./images/js.png",
       "imageClass": "w-[53px]",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 92
     },
-    {
-      "id": "nodejs",
-      "name": "Node.js",
-      "image": "./images/nodejs.png",
-      "customClass": ""
-    }, 
     {
       "id": "npm",
       "name": "npm",
       "image": "./images/npm.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 85
     },
     {
       "id": "react",
       "name": "React",
       "image": "./images/react.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 90
     },
     {
       "id": "panel-dev",
       "name": "Panel Development",
       "image": "./images/Web Panel.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 75
     },
     {
       "id": "python",
       "name": "Python",
       "image": "./images/python.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 78
     },
     {
       "id": "git",
       "name": "Git",
       "image": "./images/git.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 85
     },
     {
       "id": "figma",
       "name": "Figma",
       "image": "./images/figma.png",
-      "customClass": ""
-    },
-    {
-      "id": "pentest",
-      "name": "Penetration Testing",
-      "image": "./images/testing.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 70
     },
     {
       "id": "sql-injection",
       "name": "SQL Injection",
       "image": "./images/sql.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 82
     },
     {
       "id": "malware-dev",
       "name": "Malware Development",
       "image": "./images/malware.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 75
     },
     {
       "id": "ddos",
       "name": "DDoS Attacks",
       "image": "./images/ddos.png",
-      "customClass": ""
-    },
-    {
-      "id": "channel-disruption",
-      "name": "Channel Disruption",
-      "image": "./images/disruption.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 80
     },
     {
       "id": "network-plus",
       "name": "Network+",
       "image": "./images/network_26812.png",
-      "customClass": "-ml-2"
+      "customClass": "-ml-2",
+      "proficiency": 85
     },
     {
       "id": "vps",
       "name": "VPS Services",
       "image": "./images/vps.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 90
     },
     {
       "id": "kali",
       "name": "Kali Linux",
       "image": "./images/linux.png",
-      "customClass": ""
+      "customClass": "",
+      "proficiency": 88
     },
     {
       "id": "tails",
       "name": "Tails OS 5.0",
       "image": "./images/boum_tails_logo_icon_169468.png",
-      "customClass": "-ml-2"
+      "customClass": "-ml-2",
+      "proficiency": 75
     }
   ]
 }

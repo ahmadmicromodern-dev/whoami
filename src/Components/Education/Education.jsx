@@ -3,78 +3,32 @@ import PropTypes from 'prop-types';
 import { AcademicCapIcon, TrophyIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 
-// داده‌های آموزشی با قابلیت توسعه
-const educationData = [
-    {
-        id: 1,
-        title: "Diploma in Veterinary and Animal Nutrition",
-        institution: "Iranian National Education System",
-        description: "Studied animal health and nutrition with a focus on practical applications",
-        year: "2014",
-        icon: AcademicCapIcon,
-        highlights: [
-            "Focus on biochemistry and microbiology",
-            "Practical laboratory training",
-            "Animal physiology specialization"
-        ]
-    },
-    {
-        id: 2,
-        title: "National Entrance Exam Achievement",
-        institution: "Iranian University Entrance System",
-        description: "Ranked 133rd in the 2014 National Entrance Exam",
-        year: "2014",
-        icon: TrophyIcon,
-        highlights: [
-            "Top 0.5% of participants",
-            "Competitive STEM-focused exam",
-            "Quantitative analysis specialization"
-        ]
-    }
-];
-
 function EducationTimeline() {
     const { t } = useTranslation();
-    
-    // Get education data from translations
     const educationData = t('education.items', { returnObjects: true });
-    
-    // Map icons to their components
     const iconMap = {
         'AcademicCapIcon': AcademicCapIcon,
         'TrophyIcon': TrophyIcon
     };
 
     return (
-        <section
-            className="relative py-20 px-4 md:px-8"
-            id="education"
-            data-aos="fade-up"
-        >
+        <section className="relative py-20 px-4 md:px-8" id="education">
             <div className="max-w-7xl mx-auto">
-                {/* Header Section */}
-                <div className="mb-16 text-center">
-                    <h2 className="text-4xl font-extrabold mb-4">
+                <div className="text-center mb-20">
+                    <h3 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-4">
                         {t('education.title')}
-                        <span className="text-blue-600 ml-2">.</span>
-                    </h2>
-                    <p className="text-xl max-w-3xl mx-auto">
-                        {t('education.subtitle')}
-                    </p>
+                    </h3>
+                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
                 </div>
 
-                {/* Timeline Container */}
                 <div className="relative">
-                    {/* Timeline Line */}
-                    <div className="hidden md:block absolute left-1/2 top-0 bottom-0
-                     w-1 bg-gray-200 transform -translate-x-1/2 rounded-full" />
+                    <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/20 to-purple-500/20 transform -translate-x-1/2 rounded-full" />
 
-                    {/* Education Items */}
-                    <div className="space-y-12 md:space-y-0">
+                    <div className="space-y-8">
                         {educationData.map((edu, index) => (
                             <EducationCard
                                 key={edu.id}
-                                edu={{...edu, icon: iconMap[edu.iconName]}}
+                                edu={{ ...edu, icon: iconMap[edu.iconName] }}
                                 index={index}
                                 totalItems={educationData.length}
                             />
@@ -86,64 +40,72 @@ function EducationTimeline() {
     );
 }
 
-// کامپوننت جداگانه برای آیتم‌های آموزشی
 const EducationCard = ({ edu, index, totalItems }) => {
     const { t } = useTranslation();
     const Icon = edu.icon;
 
     return (
-        <article
-            className={`relative md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} 
-            items-center gap-8 w-full ${index !== totalItems - 1 ? 'mb-20' : ''}`}>
+        <article className={`relative md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} 
+            items-center gap-8 w-full ${index !== totalItems - 1 ? 'mb-20' : ''} group`}>
+
             {/* Timeline Dot */}
-            <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <div className="w-6 h-6 bg-blue-600 rounded-full ring-8 ring-blue-100" />
+            <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                <div className="w-6 h-6 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full 
+                    ring-8 ring-blue-100/50 backdrop-blur-sm shadow-lg" />
             </div>
 
             {/* Content Container */}
-            <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                <div className="relative rounded-2xl shadow-lg hover:shadow-xl transition-shadow
-                 duration-300 p-8 border border-gray-100">
+            <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'} relative`}>
+                <div className="relative bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl 
+                    p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2
+                    group-hover:bg-white/30 overflow-hidden">
+
+                    {/* Gradient Overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 
+                        opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-400/20 to-purple-400/20 
+                        rounded-bl-2xl opacity-50"></div>
+                    <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-pink-400/20 to-orange-400/20 
+                        rounded-tr-2xl opacity-50"></div>
+
                     {/* Icon Header */}
                     <div className="mb-6 flex items-center gap-4">
-                        <div className="p-3 bg-blue-100 rounded-lg">
+                        <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl backdrop-blur-sm">
                             <Icon className="w-8 h-8 text-blue-600" />
                         </div>
                         <div>
-                            <h3 className="text-2xl font-bold">{edu.title}</h3>
-                            <p className="text-sm font-medium mt-1">{edu.institution}</p>
+                            <h3 className="text-2xl font-bold text-gray-800">{edu.title}</h3>
+                            <p className="text-sm font-medium mt-1 text-gray-800">{edu.institution}</p>
                         </div>
                     </div>
 
                     {/* Content Body */}
-                    <div className="space-y-4">
-                        <div className="flex items-center gap-2 text-sm font-medium text-gray-600">
-                            <span className="bg-gray-100 px-3 py-1 rounded-full">🎓 {edu.year}</span>
+                    <div className="space-y-4 relative z-10">
+                        <div className="flex items-center gap-2 text-sm font-medium">
+                            <span className="bg-white/50 text-gray-700 px-3 py-1 rounded-full 
+                                backdrop-blur-sm border border-white/30">
+                                🎓 {edu.year}
+                            </span>
                             {index === 0 && (
-                                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">
+                                <span className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 
+                                    text-green-800 px-3 py-1 rounded-full backdrop-blur-sm">
                                     {t('education.completed')}
                                 </span>
                             )}
                         </div>
 
-                        <p className="leading-relaxed">{edu.description}</p>
+                        <p className="leading-relaxed text-gray-900">{edu.description}</p>
 
                         {/* Highlights List */}
                         <ul className="space-y-2 mt-4">
                             {edu.highlights.map((highlight, i) => (
-                                <li
-                                    key={i}
-                                    className="flex items-start gap-2"
-                                >
-                                    <svg
-                                        className="w-4 h-4 text-blue-600 flex-shrink-0 mt-1"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                <li key={i} className="flex items-start gap-2">
+                                    <svg className="w-4 h-4 text-blue-600 flex-shrink-0 mt-1"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round"
+                                            strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span>{highlight}</span>
+                                    <span className="text-gray-800">{highlight}</span>
                                 </li>
                             ))}
                         </ul>

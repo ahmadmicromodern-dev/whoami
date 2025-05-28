@@ -1,17 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
 import skillsData from './Skill.json';
 
 function Skills() {
+    const [skills, setSkills] = useState([]);
+
+    useEffect(() => {
+        setSkills(skillsData.skills);
+    }, []);
+
     const addImageFallback = (event) => {
-        event.currentTarget.src = 'https://via.placeholder.com/32?text=❌';
-        event.currentTarget.onerror = null;
+        const target = event.currentTarget;
+        target.src = 'https://via.placeholder.com/32?text=❌';
+        target.onerror = null;
     };
 
-    // دستهبندی مهارتها
     const skillCategories = [
         {
-            title: 'Web development',
+            title: 'Web Development',
             skills: ['html', 'css', 'tailwind', 'bootstrap', 'javascript', 'nodejs', 'npm', 'react', 'panel-dev', 'python']
         },
         {
@@ -19,74 +24,139 @@ function Skills() {
             skills: ['pentest', 'sql-injection', 'malware-dev', 'ddos', 'channel-disruption', 'kali', 'tails', 'network-plus']
         },
         {
-            title: 'Network and infrastructure',
+            title: 'Network and Infrastructure',
             skills: ['vps']
         },
         {
-            title: 'Tools',
+            title: 'Design Tools',
             skills: ['git', 'figma']
         }
     ];
 
+    const getProgressColor = (proficiency) => {
+        if (proficiency >= 90) return "bg-gradient-to-r from-emerald-500 to-green-500";
+        if (proficiency >= 80) return "bg-gradient-to-r from-blue-500 to-cyan-500";
+        if (proficiency >= 70) return "bg-gradient-to-r from-yellow-500 to-orange-400";
+        return "bg-gradient-to-r from-orange-500 to-red-500";
+    };
+
     return (
-        <div>
-            <section className="py-12 shadow-md px-4 md:px-8" id="skills" data-aos="fade-up">
-                <div className="max-w-6xl mx-auto text-center">
-                    <h3 className="text-3xl font-bold mb-8">Skill</h3>
-
-                    {skillCategories.map((category) => (
-                        <div key={category.title} className="mb-12">
-                            <h4 className="text-xl font-semibold mb-6 text-gray-700">
-                                {category.title}
-                            </h4>
-                            
-                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 justify-center">
-                                {skillsData.skills
-                                    .filter(skill => category.skills.includes(skill.id))
-                                    .map((skill) => (
-                                        <div
-                                            key={skill.id}
-                                            className="flex flex-col items-center justify-center border rounded-lg
-                                            p-4 gap-2 shadow-sm hover:shadow-lg transition-all
-                                            duration-300 hover:-translate-y-1 min-w-[120px] max-w-[160px]
-                                            h-[120px] hover:border-blue-200"
-                                        >
-                                            <img
-                                                src={skill.image}
-                                                alt={`${skill.name} icon`}
-                                                className="w-12 h-12 object-contain"
-                                                loading="lazy"
-                                                onError={addImageFallback}
-                                            />
-                                            <h6 className={`text-sm font-semibold text-center ${skill.customClass || ''}`}>
-                                                {skill.name}
-                                            </h6>
-                                        </div>
-                                    ))}
-                            </div>
-                        </div>
-                    ))}
-
-                    {skillsData.skills.length === 0 && (
-                        <p className="text-gray-500 mt-8">No skills to display</p>
-                    )}
+        <section className="relative py-12 px-4 md:px-8" id="skills">
+            <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-12">
+                    <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-3">
+                        Skills & Expertise
+                    </h3>
+                    <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
                 </div>
-            </section>
-        </div>
+
+                {skillCategories.map((category, categoryIndex) => (
+                    <div key={category.title} className="mb-12 relative">
+                        <div className="text-center mb-8">
+                            <h4 className="text-xl md:text-2xl font-bold text-gray-800 mb-2 relative inline-block">
+                                {category.title}
+                                <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                            </h4>
+                            <p className="text-gray-600 mt-2 text-sm">Professional expertise and technical proficiency</p>
+                        </div>
+
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                            {skills
+                                .filter(skill => category.skills.includes(skill.id))
+                                .map((skill, index) => (
+                                    <div
+                                        key={skill.id}
+                                        className="group relative"
+                                        style={{
+                                            animationDelay: `${index * 100}ms`
+                                        }}
+                                    >
+                                        <div className="relative bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-3 
+                                        shadow-xl hover:shadow-2xl transition-all duration-500 
+                                        hover:-translate-y-1 hover:bg-white/30 group overflow-hidden">
+
+                                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 
+                                          opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+
+                                            <div className="relative z-10 flex flex-col items-center text-center space-y-3">
+                                                <div className="relative">
+                                                    <div className="w-14 h-14 bg-gradient-to-br from-white/40 to-white/20 rounded-xl 
+                                              flex items-center justify-center backdrop-blur-sm border border-white/40
+                                              group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                                        <img
+                                                            src={skill.image}
+                                                            alt={`${skill.name} icon`}
+                                                            className={`w-8 h-8 object-contain transition-transform duration-300 
+                                              group-hover:scale-110 ${skill.imageClass || ''}`}
+                                                            loading="lazy"
+                                                            onError={addImageFallback}
+                                                        />
+                                                    </div>
+
+                                                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-blue-600 to-purple-600 
+                                              text-white text-xs font-bold rounded-full w-7 h-7 flex items-center 
+                                              justify-center shadow-lg border-2 border-white/50">
+                                                        {skill.proficiency}%
+                                                    </div>
+                                                </div>
+
+                                                <h6 className={`text-sm font-bold text-gray-800 group-hover:text-gray-900 
+                                            transition-colors duration-300 ${skill.customClass || ''}`}>
+                                                    {skill.name}
+                                                </h6>
+
+                                                <div className="w-full space-y-1.5">
+                                                    <div className="flex justify-between items-center text-xs">
+                                                        <span className="text-gray-900 font-medium">Proficiency</span>
+                                                        <span className="font-bold text-gray-800">{skill.proficiency}%</span>
+                                                    </div>
+
+                                                    <div className="relative w-full h-1.5 bg-white/40 rounded-full overflow-hidden backdrop-blur-sm">
+                                                        <div
+                                                            className={`h-full rounded-full transition-all duration-1000 ease-out ${getProgressColor(skill.proficiency)} shadow-sm`}
+                                                            style={{
+                                                                width: `${skill.proficiency}%`,
+                                                                animationDelay: `${index * 200}ms`
+                                                            }}
+                                                        ></div>
+                                                    </div>
+
+                                                    <div className="flex justify-center items-center gap-1 mt-1.5">
+                                                        {[...Array(5)].map((_, starIndex) => (
+                                                            <div
+                                                                key={starIndex}
+                                                                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${starIndex < Math.floor(skill.proficiency / 20)
+                                                                    ? 'bg-gradient-to-r from-yellow-400 to-orange-400 shadow-md scale-110'
+                                                                    : 'bg-white/40 backdrop-blur-sm'
+                                                                    }`}
+                                                                style={{
+                                                                    animationDelay: `${(index * 100) + (starIndex * 50)}ms`
+                                                                }}
+                                                            />
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-blue-400/20 to-purple-400/20 
+                                          rounded-bl-xl opacity-50"></div>
+                                            <div className="absolute bottom-0 left-0 w-10 h-10 bg-gradient-to-tr from-pink-400/20 to-orange-400/20 
+                                          rounded-tr-xl opacity-50"></div>
+                                        </div>
+                                    </div>
+                                ))}
+                        </div>
+                    </div>
+                ))}
+
+                {skills.length === 0 && (
+                    <div className="text-center py-12">
+                        <p className="text-gray-500 text-lg">No skills to display</p>
+                    </div>
+                )}
+            </div>
+        </section>
     );
 }
-
-Skills.propTypes = {
-    skillsData: PropTypes.shape({
-        skills: PropTypes.arrayOf(
-            PropTypes.shape({
-                id: PropTypes.string.isRequired,
-                name: PropTypes.string.isRequired,
-                image: PropTypes.string.isRequired,
-                customClass: PropTypes.string
-            })
-        )
-    })
-};
 
 export default Skills;
