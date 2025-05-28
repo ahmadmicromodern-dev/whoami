@@ -1,7 +1,6 @@
 # WhoAmI - Personal Portfolio
 
-## Attribution / Attribution
-با سلام خدمت مهندس و همکار گرامی لطفا وقتی از پروژه های اپن سورس من استفاده میکنید یادر از من در پروژه کنید با قرار دادن ادرس گیت هاب من در هرقسمت که تمایل داشتید ممنون وموفق باشید
+با سلام خدمت مهندس و همکار گرامی لطفا وقتی از پروژه های اپن سورس من استفاده میکنید یادی از من در پروژه کنید با قرار دادن ادرس گیت هاب من در هرقسمت که تمایل داشتید ممنون وموفق باشید
 
 Hello dear engineer and colleague, when you use my open source projects or mention me in your project, please include my GitHub address wherever you prefer. Thank you and good luck.
 
